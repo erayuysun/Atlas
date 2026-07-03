@@ -178,7 +178,7 @@ export default function KenyaDetails() {
               <div key={i}>
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full flex items-center justify-between py-5 px-4 text-left outline-none group rounded-xl transition-all duration-200 hover:bg-[#1a1a1a] hover:shadow-[0_0_18px_rgba(255,255,255,0.07)]"
+                  className="w-full flex items-center justify-between py-5 px-4 text-left outline-none group rounded-xl transition-all duration-200 hover:bg-[#1a1a1a] hover:shadow-[0_0_0_1px_rgba(255,255,255,0.5),_0_0_30px_rgba(255,255,255,0.25),_0_0_60px_rgba(255,255,255,0.12)]"
                 >
                   <span className="text-white text-base lg:text-xl font-semibold">
                     {i + 1}. {item.q}
@@ -202,7 +202,7 @@ export default function KenyaDetails() {
               <div key={i}>
                 <button
                   onClick={() => setOpenReq(openReq === i ? null : i)}
-                  className="w-full flex items-center justify-between py-5 px-4 text-left outline-none rounded-xl transition-all duration-200 hover:bg-[#1a1a1a] hover:shadow-[0_0_18px_rgba(255,255,255,0.07)]"
+                  className="w-full flex items-center justify-between py-5 px-4 text-left outline-none rounded-xl transition-all duration-200 hover:bg-[#1a1a1a] hover:shadow-[0_0_0_1px_rgba(255,255,255,0.5),_0_0_30px_rgba(255,255,255,0.25),_0_0_60px_rgba(255,255,255,0.12)]"
                 >
                   <span className="text-white text-base lg:text-xl font-semibold">{item.q}</span>
                   <svg
@@ -227,7 +227,7 @@ export default function KenyaDetails() {
       <div className="mt-6 border-t border-white/10">
         <button
           onClick={() => setTakeawaysOpen(o => !o)}
-          className="w-full flex items-center justify-between py-5 px-4 text-left outline-none rounded-xl transition-all duration-200 hover:bg-[#1a1a1a] hover:shadow-[0_0_18px_rgba(255,255,255,0.07)]"
+          className="w-full flex items-center justify-between py-5 px-4 text-left outline-none rounded-xl transition-all duration-200 hover:bg-[#1a1a1a] hover:shadow-[0_0_0_1px_rgba(255,255,255,0.5),_0_0_30px_rgba(255,255,255,0.25),_0_0_60px_rgba(255,255,255,0.12)]"
         >
           <span className="text-white text-base lg:text-xl font-semibold">Key Takeaways: Before You Fly</span>
           <svg
@@ -286,10 +286,10 @@ export default function KenyaDetails() {
       </div>
 
       {/* What Makes Paragliding Atlas Unique — accordion */}
-      <div className="mt-6 border-t border-white/10">
+      <div className="mt-6 border-white/10">
         <button
           onClick={() => setUniqueOpen(o => !o)}
-          className="w-full flex items-center justify-between py-5 px-4 text-left outline-none rounded-xl transition-all duration-200 hover:bg-[#1a1a1a] hover:shadow-[0_0_18px_rgba(255,255,255,0.07)]"
+          className="border border-white/20 w-full flex items-center justify-between py-5 px-4 text-left outline-none rounded-xl transition-all duration-200 hover:bg-[#1a1a1a] hover:shadow-[0_0_0_1px_rgba(255,255,255,0.5),_0_0_30px_rgba(255,255,255,0.25),_0_0_60px_rgba(255,255,255,0.12)]"
         >
           <span className="text-white text-base lg:text-xl font-semibold text-center w-full">What Makes Paragliding Atlas Unique?</span>
           <svg
@@ -302,7 +302,7 @@ export default function KenyaDetails() {
 
         {uniqueOpen && (
           <div className="pb-8">
-            <p className="text-white font-semibold text-sm lg:text-base text-center max-w-3xl mx-auto mb-14 leading-relaxed">
+            <p className=" pt-10  text-white font-semibold text-sm lg:text-base text-center max-w-3xl mx-auto mb-14 leading-relaxed">
               Experience intimate, expert led flying in world class destinations. Skip the crowds with small group tours in iconic skies over untamed terrains, fully guided from launch to landing and beyond
             </p>
 

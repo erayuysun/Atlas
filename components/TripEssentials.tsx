@@ -51,7 +51,7 @@ export default function TripEssentials() {
           outline: "none",
           transition: "background-color 200ms ease",
         }}
-        onMouseEnter={e => { e.currentTarget.style.backgroundColor = "#272727"; e.currentTarget.style.boxShadow = "0 0 18px rgba(255,255,255,0.07)"; }}
+        onMouseEnter={e => { e.currentTarget.style.backgroundColor = "#272727"; e.currentTarget.style.boxShadow = "0 0 0 1px rgba(255,255,255,0.5), 0 0 30px rgba(255,255,255,0.25), 0 0 60px rgba(255,255,255,0.12)"; }}
         onMouseLeave={e => { e.currentTarget.style.backgroundColor = "#1e1e1e"; e.currentTarget.style.boxShadow = "none"; }}
       >
           <span style={{ color: "#f97316", fontWeight: 700, fontSize: "clamp(16px, 1.1vw, 20px)", letterSpacing: "0.04em" }}>
