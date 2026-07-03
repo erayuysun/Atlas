@@ -1,0 +1,1329 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/about/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_about_page",
+      "community": 6,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "AboutPage()",
+      "file_type": "code",
+      "source_file": "app/about/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_about_page_aboutpage",
+      "community": 6,
+      "norm_label": "aboutpage()"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "app/api/auth/login/route.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_api_auth_login_route",
+      "community": 7,
+      "norm_label": "route.ts"
+    },
+    {
+      "label": "POST()",
+      "file_type": "code",
+      "source_file": "app/api/auth/login/route.ts",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "app_api_auth_login_route_post",
+      "community": 7,
+      "norm_label": "post()"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "app/api/pins/route.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_api_pins_route",
+      "community": 1,
+      "norm_label": "route.ts"
+    },
+    {
+      "label": "pinsFile",
+      "file_type": "code",
+      "source_file": "app/api/pins/route.ts",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "app_api_pins_route_pinsfile",
+      "community": 1,
+      "norm_label": "pinsfile"
+    },
+    {
+      "label": "readPins()",
+      "file_type": "code",
+      "source_file": "app/api/pins/route.ts",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "app_api_pins_route_readpins",
+      "community": 1,
+      "norm_label": "readpins()"
+    },
+    {
+      "label": "writePins()",
+      "file_type": "code",
+      "source_file": "app/api/pins/route.ts",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "app_api_pins_route_writepins",
+      "community": 1,
+      "norm_label": "writepins()"
+    },
+    {
+      "label": "validateToken()",
+      "file_type": "code",
+      "source_file": "app/api/pins/route.ts",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "app_api_pins_route_validatetoken",
+      "community": 1,
+      "norm_label": "validatetoken()"
+    },
+    {
+      "label": "GET()",
+      "file_type": "code",
+      "source_file": "app/api/pins/route.ts",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "app_api_pins_route_get",
+      "community": 1,
+      "norm_label": "get()"
+    },
+    {
+      "label": "POST()",
+      "file_type": "code",
+      "source_file": "app/api/pins/route.ts",
+      "source_location": "L35",
+      "_origin": "ast",
+      "id": "app_api_pins_route_post",
+      "community": 1,
+      "norm_label": "post()"
+    },
+    {
+      "label": "DELETE()",
+      "file_type": "code",
+      "source_file": "app/api/pins/route.ts",
+      "source_location": "L47",
+      "_origin": "ast",
+      "id": "app_api_pins_route_delete",
+      "community": 1,
+      "norm_label": "delete()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/atlas/india/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_atlas_india_page",
+      "community": 8,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "IndiaPage()",
+      "file_type": "code",
+      "source_file": "app/atlas/india/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_atlas_india_page_indiapage",
+      "community": 8,
+      "norm_label": "indiapage()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/atlas/kenya/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_atlas_kenya_page",
+      "community": 0,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "KenyaPage()",
+      "file_type": "code",
+      "source_file": "app/atlas/kenya/page.tsx",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "app_atlas_kenya_page_kenyapage",
+      "community": 0,
+      "norm_label": "kenyapage()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/atlas/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_atlas_page",
+      "community": 9,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "AtlasPage()",
+      "file_type": "code",
+      "source_file": "app/atlas/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_atlas_page_atlaspage",
+      "community": 9,
+      "norm_label": "atlaspage()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/atlas/peru/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_atlas_peru_page",
+      "community": 10,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "PeruPage()",
+      "file_type": "code",
+      "source_file": "app/atlas/peru/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_atlas_peru_page_perupage",
+      "community": 10,
+      "norm_label": "perupage()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/knowledge-base/competitions/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_knowledge_base_competitions_page",
+      "community": 11,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "CompetitionsPage()",
+      "file_type": "code",
+      "source_file": "app/knowledge-base/competitions/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_knowledge_base_competitions_page_competitionspage",
+      "community": 11,
+      "norm_label": "competitionspage()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/knowledge-base/core-series/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_knowledge_base_core_series_page",
+      "community": 12,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "CoreSeriesPage()",
+      "file_type": "code",
+      "source_file": "app/knowledge-base/core-series/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_knowledge_base_core_series_page_coreseriespage",
+      "community": 12,
+      "norm_label": "coreseriespage()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/knowledge-base/industry/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_knowledge_base_industry_page",
+      "community": 13,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "IndustryPage()",
+      "file_type": "code",
+      "source_file": "app/knowledge-base/industry/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_knowledge_base_industry_page_industrypage",
+      "community": 13,
+      "norm_label": "industrypage()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/knowledge-base/meteorology/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_knowledge_base_meteorology_page",
+      "community": 14,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "MeteorologyPage()",
+      "file_type": "code",
+      "source_file": "app/knowledge-base/meteorology/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_knowledge_base_meteorology_page_meteorologypage",
+      "community": 14,
+      "norm_label": "meteorologypage()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/knowledge-base/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_knowledge_base_page",
+      "community": 15,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "KnowledgeBasePage()",
+      "file_type": "code",
+      "source_file": "app/knowledge-base/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_knowledge_base_page_knowledgebasepage",
+      "community": 15,
+      "norm_label": "knowledgebasepage()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/knowledge-base/technical-focus/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_knowledge_base_technical_focus_page",
+      "community": 16,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "TechnicalFocusPage()",
+      "file_type": "code",
+      "source_file": "app/knowledge-base/technical-focus/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_knowledge_base_technical_focus_page_technicalfocuspage",
+      "community": 16,
+      "norm_label": "technicalfocuspage()"
+    },
+    {
+      "label": "layout.tsx",
+      "file_type": "code",
+      "source_file": "app/layout.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_layout",
+      "community": 2,
+      "norm_label": "layout.tsx"
+    },
+    {
+      "label": "barlowCondensed",
+      "file_type": "code",
+      "source_file": "app/layout.tsx",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "app_layout_barlowcondensed",
+      "community": 2,
+      "norm_label": "barlowcondensed"
+    },
+    {
+      "label": "metadata",
+      "file_type": "code",
+      "source_file": "app/layout.tsx",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "app_layout_metadata",
+      "community": 2,
+      "norm_label": "metadata"
+    },
+    {
+      "label": "RootLayout()",
+      "file_type": "code",
+      "source_file": "app/layout.tsx",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "app_layout_rootlayout",
+      "community": 2,
+      "norm_label": "rootlayout()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/login/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_login_page",
+      "community": 2,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "LoginPage()",
+      "file_type": "code",
+      "source_file": "app/login/page.tsx",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "app_login_page_loginpage",
+      "community": 2,
+      "norm_label": "loginpage()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_page",
+      "community": 0,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "Home()",
+      "file_type": "code",
+      "source_file": "app/page.tsx",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "app_page_home",
+      "community": 0,
+      "norm_label": "home()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/podcast/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_podcast_page",
+      "community": 17,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "PodcastPage()",
+      "file_type": "code",
+      "source_file": "app/podcast/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_podcast_page_podcastpage",
+      "community": 17,
+      "norm_label": "podcastpage()"
+    },
+    {
+      "label": "EpisodeMap.tsx",
+      "file_type": "code",
+      "source_file": "components/EpisodeMap.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_episodemap",
+      "community": 3,
+      "norm_label": "episodemap.tsx"
+    },
+    {
+      "label": "CONTINENTS",
+      "file_type": "code",
+      "source_file": "components/EpisodeMap.tsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "components_episodemap_continents",
+      "community": 3,
+      "norm_label": "continents"
+    },
+    {
+      "label": "ICONS",
+      "file_type": "code",
+      "source_file": "components/EpisodeMap.tsx",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "components_episodemap_icons",
+      "community": 3,
+      "norm_label": "icons"
+    },
+    {
+      "label": "Pin",
+      "file_type": "code",
+      "source_file": "components/EpisodeMap.tsx",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "components_episodemap_pin",
+      "community": 3,
+      "norm_label": "pin"
+    },
+    {
+      "label": "PinDraft",
+      "file_type": "code",
+      "source_file": "components/EpisodeMap.tsx",
+      "source_location": "L32",
+      "_origin": "ast",
+      "id": "components_episodemap_pindraft",
+      "community": 3,
+      "norm_label": "pindraft"
+    },
+    {
+      "label": "EpisodeMap()",
+      "file_type": "code",
+      "source_file": "components/EpisodeMap.tsx",
+      "source_location": "L40",
+      "_origin": "ast",
+      "id": "components_episodemap_episodemap",
+      "community": 3,
+      "norm_label": "episodemap()"
+    },
+    {
+      "label": "Footer.tsx",
+      "file_type": "code",
+      "source_file": "components/Footer.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_footer",
+      "community": 0,
+      "norm_label": "footer.tsx"
+    },
+    {
+      "label": "Footer()",
+      "file_type": "code",
+      "source_file": "components/Footer.tsx",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "components_footer_footer",
+      "community": 0,
+      "norm_label": "footer()"
+    },
+    {
+      "label": "KenyaDetails.tsx",
+      "file_type": "code",
+      "source_file": "components/KenyaDetails.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_kenyadetails",
+      "community": 4,
+      "norm_label": "kenyadetails.tsx"
+    },
+    {
+      "label": "TABS",
+      "file_type": "code",
+      "source_file": "components/KenyaDetails.tsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "components_kenyadetails_tabs",
+      "community": 4,
+      "norm_label": "tabs"
+    },
+    {
+      "label": "Tab",
+      "file_type": "code",
+      "source_file": "components/KenyaDetails.tsx",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "components_kenyadetails_tab",
+      "community": 4,
+      "norm_label": "tab"
+    },
+    {
+      "label": "GALLERY",
+      "file_type": "code",
+      "source_file": "components/KenyaDetails.tsx",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "components_kenyadetails_gallery",
+      "community": 4,
+      "norm_label": "gallery"
+    },
+    {
+      "label": "STATS",
+      "file_type": "code",
+      "source_file": "components/KenyaDetails.tsx",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "components_kenyadetails_stats",
+      "community": 4,
+      "norm_label": "stats"
+    },
+    {
+      "label": "KenyaDetails()",
+      "file_type": "code",
+      "source_file": "components/KenyaDetails.tsx",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "components_kenyadetails_kenyadetails",
+      "community": 4,
+      "norm_label": "kenyadetails()"
+    },
+    {
+      "label": "KnowBeforeYouGo.tsx",
+      "file_type": "code",
+      "source_file": "components/KnowBeforeYouGo.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_knowbeforeyougo",
+      "community": 0,
+      "norm_label": "knowbeforeyougo.tsx"
+    },
+    {
+      "label": "sections",
+      "file_type": "code",
+      "source_file": "components/KnowBeforeYouGo.tsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "components_knowbeforeyougo_sections",
+      "community": 0,
+      "norm_label": "sections"
+    },
+    {
+      "label": "KnowBeforeYouGo()",
+      "file_type": "code",
+      "source_file": "components/KnowBeforeYouGo.tsx",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "components_knowbeforeyougo_knowbeforeyougo",
+      "community": 0,
+      "norm_label": "knowbeforeyougo()"
+    },
+    {
+      "label": "Navigation.tsx",
+      "file_type": "code",
+      "source_file": "components/Navigation.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_navigation",
+      "community": 2,
+      "norm_label": "navigation.tsx"
+    },
+    {
+      "label": "Navigation()",
+      "file_type": "code",
+      "source_file": "components/Navigation.tsx",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "components_navigation_navigation",
+      "community": 2,
+      "norm_label": "navigation()"
+    },
+    {
+      "label": "PodcastCarousel.tsx",
+      "file_type": "code",
+      "source_file": "components/PodcastCarousel.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_podcastcarousel",
+      "community": 5,
+      "norm_label": "podcastcarousel.tsx"
+    },
+    {
+      "label": "podcastGuests",
+      "file_type": "code",
+      "source_file": "components/PodcastCarousel.tsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "components_podcastcarousel_podcastguests",
+      "community": 5,
+      "norm_label": "podcastguests"
+    },
+    {
+      "label": "AnimPhase",
+      "file_type": "code",
+      "source_file": "components/PodcastCarousel.tsx",
+      "source_location": "L74",
+      "_origin": "ast",
+      "id": "components_podcastcarousel_animphase",
+      "community": 5,
+      "norm_label": "animphase"
+    },
+    {
+      "label": "PodcastCarousel()",
+      "file_type": "code",
+      "source_file": "components/PodcastCarousel.tsx",
+      "source_location": "L76",
+      "_origin": "ast",
+      "id": "components_podcastcarousel_podcastcarousel",
+      "community": 5,
+      "norm_label": "podcastcarousel()"
+    },
+    {
+      "label": "TripEssentials.tsx",
+      "file_type": "code",
+      "source_file": "components/TripEssentials.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_tripessentials",
+      "community": 0,
+      "norm_label": "tripessentials.tsx"
+    },
+    {
+      "label": "essentials",
+      "file_type": "code",
+      "source_file": "components/TripEssentials.tsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "components_tripessentials_essentials",
+      "community": 0,
+      "norm_label": "essentials"
+    },
+    {
+      "label": "TripEssentials()",
+      "file_type": "code",
+      "source_file": "components/TripEssentials.tsx",
+      "source_location": "L32",
+      "_origin": "ast",
+      "id": "components_tripessentials_tripessentials",
+      "community": 0,
+      "norm_label": "tripessentials()"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/about/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "app_about_page",
+      "target": "app_about_page_aboutpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/auth/login/route.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "app_api_auth_login_route",
+      "target": "app_api_auth_login_route_post",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/pins/route.ts",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "app_api_pins_route",
+      "target": "app_api_pins_route_delete",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/pins/route.ts",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "app_api_pins_route",
+      "target": "app_api_pins_route_get",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/pins/route.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "app_api_pins_route",
+      "target": "app_api_pins_route_pinsfile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/pins/route.ts",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "app_api_pins_route",
+      "target": "app_api_pins_route_post",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/pins/route.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_api_pins_route",
+      "target": "app_api_pins_route_readpins",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/pins/route.ts",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "app_api_pins_route",
+      "target": "app_api_pins_route_validatetoken",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/pins/route.ts",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "app_api_pins_route",
+      "target": "app_api_pins_route_writepins",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/pins/route.ts",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "app_api_pins_route_delete",
+      "target": "app_api_pins_route_readpins",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/pins/route.ts",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "app_api_pins_route_get",
+      "target": "app_api_pins_route_readpins",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/pins/route.ts",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "app_api_pins_route_post",
+      "target": "app_api_pins_route_readpins",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/pins/route.ts",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "app_api_pins_route_delete",
+      "target": "app_api_pins_route_writepins",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/pins/route.ts",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "app_api_pins_route_post",
+      "target": "app_api_pins_route_writepins",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/pins/route.ts",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "app_api_pins_route_delete",
+      "target": "app_api_pins_route_validatetoken",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/pins/route.ts",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "app_api_pins_route_post",
+      "target": "app_api_pins_route_validatetoken",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/atlas/india/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "app_atlas_india_page",
+      "target": "app_atlas_india_page_indiapage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/atlas/kenya/page.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "app_atlas_kenya_page",
+      "target": "app_atlas_kenya_page_kenyapage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/atlas/kenya/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "app_atlas_kenya_page",
+      "target": "components_footer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/atlas/kenya/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "app_atlas_kenya_page",
+      "target": "components_footer_footer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/atlas/kenya/page.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "app_atlas_kenya_page",
+      "target": "components_kenyadetails",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/atlas/kenya/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_atlas_kenya_page",
+      "target": "components_knowbeforeyougo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/atlas/kenya/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "app_atlas_kenya_page",
+      "target": "components_tripessentials",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/atlas/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "app_atlas_page",
+      "target": "app_atlas_page_atlaspage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/atlas/peru/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "app_atlas_peru_page",
+      "target": "app_atlas_peru_page_perupage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/knowledge-base/competitions/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "app_knowledge_base_competitions_page",
+      "target": "app_knowledge_base_competitions_page_competitionspage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/knowledge-base/core-series/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "app_knowledge_base_core_series_page",
+      "target": "app_knowledge_base_core_series_page_coreseriespage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/knowledge-base/industry/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "app_knowledge_base_industry_page",
+      "target": "app_knowledge_base_industry_page_industrypage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/knowledge-base/meteorology/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "app_knowledge_base_meteorology_page",
+      "target": "app_knowledge_base_meteorology_page_meteorologypage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/knowledge-base/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "app_knowledge_base_page",
+      "target": "app_knowledge_base_page_knowledgebasepage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/knowledge-base/technical-focus/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "app_knowledge_base_technical_focus_page",
+      "target": "app_knowledge_base_technical_focus_page_technicalfocuspage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/layout.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "app_layout",
+      "target": "app_layout_barlowcondensed",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/layout.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "app_layout",
+      "target": "app_layout_metadata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/layout.tsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "app_layout",
+      "target": "app_layout_rootlayout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/layout.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "app_layout",
+      "target": "components_navigation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/login/page.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "app_login_page",
+      "target": "app_login_page_loginpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/login/page.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "app_login_page",
+      "target": "components_navigation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/page.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "app_page",
+      "target": "app_page_home",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_page",
+      "target": "components_episodemap",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/page.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "app_page",
+      "target": "components_footer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/page.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "app_page",
+      "target": "components_footer_footer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "app_page",
+      "target": "components_podcastcarousel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/podcast/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "app_podcast_page",
+      "target": "app_podcast_page_podcastpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/EpisodeMap.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_episodemap",
+      "target": "components_episodemap_continents",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/EpisodeMap.tsx",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "components_episodemap",
+      "target": "components_episodemap_episodemap",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/EpisodeMap.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "components_episodemap",
+      "target": "components_episodemap_icons",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/EpisodeMap.tsx",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "components_episodemap",
+      "target": "components_episodemap_pin",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/EpisodeMap.tsx",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "components_episodemap",
+      "target": "components_episodemap_pindraft",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/Footer.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "components_footer",
+      "target": "components_footer_footer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/KenyaDetails.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "components_kenyadetails",
+      "target": "components_kenyadetails_gallery",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/KenyaDetails.tsx",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "components_kenyadetails",
+      "target": "components_kenyadetails_kenyadetails",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/KenyaDetails.tsx",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "components_kenyadetails",
+      "target": "components_kenyadetails_stats",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/KenyaDetails.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "components_kenyadetails",
+      "target": "components_kenyadetails_tab",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/KenyaDetails.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_kenyadetails",
+      "target": "components_kenyadetails_tabs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/KnowBeforeYouGo.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "components_knowbeforeyougo",
+      "target": "components_knowbeforeyougo_knowbeforeyougo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/KnowBeforeYouGo.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_knowbeforeyougo",
+      "target": "components_knowbeforeyougo_sections",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/Navigation.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "components_navigation",
+      "target": "components_navigation_navigation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/PodcastCarousel.tsx",
+      "source_location": "L74",
+      "weight": 1.0,
+      "source": "components_podcastcarousel",
+      "target": "components_podcastcarousel_animphase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/PodcastCarousel.tsx",
+      "source_location": "L76",
+      "weight": 1.0,
+      "source": "components_podcastcarousel",
+      "target": "components_podcastcarousel_podcastcarousel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/PodcastCarousel.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_podcastcarousel",
+      "target": "components_podcastcarousel_podcastguests",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/TripEssentials.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_tripessentials",
+      "target": "components_tripessentials_essentials",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/TripEssentials.tsx",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "components_tripessentials",
+      "target": "components_tripessentials_tripessentials",
+      "confidence_score": 1.0
+    }
+  ],
+  "hyperedges": [],
+  "built_at_commit": "79047193312e76d1e41d75d68db5e6c01fa9b8c9"
+}

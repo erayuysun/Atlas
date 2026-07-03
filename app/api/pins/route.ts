@@ -1,35 +1,36 @@
 import { NextResponse } from 'next/server';
 import crypto from 'crypto';
-import fs from 'fs';
-import path from 'path';
+import { Redis } from '@upstash/redis';
 
-const pinsFile = path.join(process.cwd(), 'data', 'pins.json');
+const redis = new Redis({
+  url: process.env.UPSTASH_REDIS_REST_URL!,
+  token: process.env.UPSTASH_REDIS_REST_TOKEN!,
+});
 
-const readPins = () => {
-  try {
-    return JSON.parse(fs.readFileSync(pinsFile, 'utf-8'));
-  } catch {
-    return [];
-  }
+const PINS_KEY = 'atlas:pins';
+
+const readPins = async (): Promise<unknown[]> => {
+  const pins = await redis.get<unknown[]>(PINS_KEY);
+  return pins ?? [];
 };
 
-const writePins = (pins: unknown[]) => {
-  fs.mkdirSync(path.dirname(pinsFile), { recursive: true });
-  fs.writeFileSync(pinsFile, JSON.stringify(pins, null, 2));
+const writePins = async (pins: unknown[]) => {
+  await redis.set(PINS_KEY, pins);
 };
 
 const validateToken = (req: Request) => {
   const authHeader = req.headers.get('authorization');
   if (!authHeader?.startsWith('Bearer ')) return false;
   const token = authHeader.slice(7);
-  const adminPassword = process.env.ADMIN_PASSWORD || 'atlas-admin-2025';
-  const secret = process.env.AUTH_SECRET || 'atlas-map-secret-key-change-me';
+  const adminPassword = process.env.ADMIN_PASSWORD!;
+  const secret = process.env.AUTH_SECRET!;
   const expected = crypto.createHmac('sha256', secret).update(adminPassword).digest('hex');
   return token === expected;
 };
 
 export async function GET() {
-  return NextResponse.json(readPins());
+  const pins = await readPins();
+  return NextResponse.json(pins);
 }
 
 export async function POST(req: Request) {
@@ -37,10 +38,10 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
   const pin = await req.json();
-  const pins = readPins();
+  const pins = await readPins();
   const newPin = { ...pin, id: Date.now() };
-  pins.push(newPin);
-  writePins(pins);
+  (pins as object[]).push(newPin);
+  await writePins(pins);
   return NextResponse.json(newPin);
 }
 
@@ -49,7 +50,7 @@ export async function DELETE(req: Request) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
   const { id } = await req.json();
-  const pins = readPins().filter((p: { id: number }) => p.id !== id);
-  writePins(pins);
+  const pins = (await readPins()).filter((p: unknown) => (p as { id: number }).id !== id);
+  await writePins(pins);
   return NextResponse.json({ success: true });
 }
