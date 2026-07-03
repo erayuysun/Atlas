@@ -1,0 +1,8 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^foreach \\(\\$file in @\\(\"TripEssentials\",\"KnowBeforeYouGo\",\"KenyaDetails\"\\)\\) \\{\n  \\(Get-Content \"c:\\\\Users\\\\alier\\\\Desktop\\\\Atlas\\\\v1\\\\Atlas\\\\components\\\\\\$file\\.tsx\"\\) `\n    -replace 'bg-\\\\\\[#111\\\\\\] hover:bg-\\\\\\[#161616\\\\\\]', 'bg-\\[#222\\] hover:bg-\\[#2a2a2a\\]' \\|\n  Set-Content \"c:\\\\Users\\\\alier\\\\Desktop\\\\Atlas\\\\v1\\\\Atlas\\\\components\\\\\\$file\\.tsx\" -Encoding UTF8\n\\}\nWrite-Host \"Done\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}

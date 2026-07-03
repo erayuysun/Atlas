@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div className="bg-[#0a0a0a] text-white">
       {/* Hero Section - starts from top, behind fixed navbar */}
-      <section className="relative h-[70vh] md:h-[80vh] w-full overflow-hidden -mt-16 md:-mt-20">
+      <section className="relative h-[33vh] md:h-[80vh] w-full overflow-hidden -mt-16 md:-mt-20">
         <div className="w-full h-full bg-cover bg-center" style={{backgroundImage: "url('/Media/hp/homapage%20image.png')"}} />
         {/* Gradient overlay: transparent in middle, dark at bottom */}
         <div className="absolute inset-0" style={{

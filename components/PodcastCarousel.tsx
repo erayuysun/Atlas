@@ -71,46 +71,114 @@ const podcastGuests = [
   }
 ];
 
+type AnimPhase = 'idle' | 'exit' | 'enter-init' | 'enter';
+
 export default function PodcastCarousel() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [sliding, setSliding] = useState(false);
+  const [displayIndex, setDisplayIndex] = useState(0);
+  const [phase, setPhase] = useState<AnimPhase>('idle');
   const [direction, setDirection] = useState<'left' | 'right'>('left');
-  const itemsPerPage = 5;
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
+
+  const itemsPerPage = isMobile ? 6 : 5;
+
+  // Preload all images as soon as the component mounts
+  useEffect(() => {
+    podcastGuests.forEach((guest) => {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = guest.image;
+      document.head.appendChild(link);
+    });
+    // Also preload the overlay template
+    const templateLink = document.createElement('link');
+    templateLink.rel = 'preload';
+    templateLink.as = 'image';
+    templateLink.href = '/Media/hp/Homepage Episode Tiles/Template.png';
+    document.head.appendChild(templateLink);
+  }, []);
+
   const totalPages = Math.ceil(podcastGuests.length / itemsPerPage);
 
+  // Reset to first page when layout switches between mobile/desktop
+  useEffect(() => {
+    setDisplayIndex(0);
+    setPhase('idle');
+  }, [isMobile]);
+
   const goTo = (newIndex: number, dir: 'left' | 'right') => {
-    if (sliding) return;
+    if (phase !== 'idle') return;
     setDirection(dir);
-    setSliding(true);
+    setPhase('exit');
+
     setTimeout(() => {
-      setCurrentIndex(newIndex);
-      setSliding(false);
-    }, 400);
+      setDisplayIndex(newIndex);
+      setPhase('enter-init');
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setPhase('enter');
+          setTimeout(() => setPhase('idle'), 350);
+        });
+      });
+    }, 300);
   };
 
   const nextSlide = () => {
-    goTo((currentIndex + 1) % totalPages, 'left');
+    goTo((displayIndex + 1) % totalPages, 'left');
   };
 
   const prevSlide = () => {
-    goTo((currentIndex - 1 + totalPages) % totalPages, 'right');
+    goTo((displayIndex - 1 + totalPages) % totalPages, 'right');
   };
 
   const visibleGuests = podcastGuests.slice(
-    currentIndex * itemsPerPage,
-    (currentIndex + 1) * itemsPerPage
+    displayIndex * itemsPerPage,
+    (displayIndex + 1) * itemsPerPage
   );
 
-  const slideStyle: React.CSSProperties = {
-    transition: sliding ? 'none' : 'transform 400ms ease, opacity 400ms ease',
-    transform: sliding
-      ? `translateX(${direction === 'left' ? '-60px' : '60px'})`
-      : 'translateX(0)',
-    opacity: sliding ? 0 : 1,
-  };
+  const slideStyle: React.CSSProperties =
+    phase === 'exit'
+      ? {
+          transition: 'transform 300ms ease, opacity 300ms ease',
+          transform: `translateX(${direction === 'left' ? '-80px' : '80px'})`,
+          opacity: 0,
+        }
+      : phase === 'enter-init'
+      ? {
+          transition: 'none',
+          transform: `translateX(${direction === 'left' ? '80px' : '-80px'})`,
+          opacity: 0,
+        }
+      : {
+          transition: 'transform 350ms ease, opacity 350ms ease',
+          transform: 'translateX(0)',
+          opacity: 1,
+        };
+
+  const gridRef = useRef<HTMLDivElement>(null);
+  const [minHeight, setMinHeight] = useState<number | undefined>(undefined);
+
+  // Keep min-height in sync with the grid's actual height at any screen size
+  useEffect(() => {
+    const el = gridRef.current;
+    if (!el) return;
+    const observer = new ResizeObserver(() => {
+      const h = el.offsetHeight;
+      if (h > 0) setMinHeight(h);
+    });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <div className="relative px-14">
+    <div className="relative px-14 overflow-hidden">
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
@@ -121,7 +189,11 @@ export default function PodcastCarousel() {
       </button>
 
       {/* Carousel Container */}
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6" style={slideStyle}>
+      <div
+        ref={gridRef}
+        className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6"
+        style={{ ...slideStyle, minHeight: minHeight ? `${minHeight}px` : undefined }}
+      >
         {visibleGuests.map((guest) => (
           <div key={guest.id} className="text-center group">
             <div className="relative w-full rounded-lg overflow-hidden">
@@ -130,6 +202,8 @@ export default function PodcastCarousel() {
                 src={guest.image}
                 alt={guest.name}
                 className="w-full h-auto"
+                loading="eager"
+                fetchPriority="high"
               />
               
               {/* Hover Overlay with Template/Compass */}
@@ -138,6 +212,7 @@ export default function PodcastCarousel() {
                   src="/Media/hp/Homepage Episode Tiles/Template.png"
                   alt="Episode overlay"
                   className="w-full h-full object-cover"
+                  loading="eager"
                 />
               </div>
             </div>
@@ -158,9 +233,9 @@ export default function PodcastCarousel() {
         {Array.from({ length: totalPages }).map((_, idx) => (
           <button
             key={idx}
-            onClick={() => goTo(idx, idx > currentIndex ? 'left' : 'right')}
+            onClick={() => goTo(idx, idx > displayIndex ? 'left' : 'right')}
             className={`w-2 h-2 rounded-full transition ${
-              idx === currentIndex ? "bg-orange-500 w-8" : "bg-gray-600"
+              idx === displayIndex ? "bg-orange-500 w-8" : "bg-gray-600"
             }`}
             aria-label={`Go to slide ${idx + 1}`}
           />

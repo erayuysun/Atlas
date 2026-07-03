@@ -54,7 +54,7 @@ export default function Navigation() {
         />
         {/* Nav content sits above background layers */}
         <div className="relative container mx-auto px-4">
-          <div className="flex justify-between items-center h-16 md:h-20">
+          <div className="relative flex justify-between items-center h-16 md:h-20">
             {/* Left Navigation */}
             <div className="hidden md:flex space-x-12 flex-1">
               <Link href="/" className="relative text-white text-lg font-semibold tracking-wide group">
@@ -67,8 +67,8 @@ export default function Navigation() {
               </Link>
             </div>
 
-            {/* Center Logo */}
-            <Link href="/" className="flex-shrink-0">
+            {/* Center Logo — absolutely centered so it stays perfectly centered at any screen size */}
+            <Link href="/atlas/kenya" className="absolute left-1/2 -translate-x-1/2 flex-shrink-0">
               <img 
                 src="/Media/hp/logonobg.png" 
                 alt="ATLAS" 
