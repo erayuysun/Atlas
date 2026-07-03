@@ -134,7 +134,7 @@ export default function KenyaPage() {
           <p className="text-orange-500 text-sm font-medium tracking-wider uppercase mb-3">Ready to Fly?</p>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Book Your Kenya Expedition</h2>
           <p className="text-gray-400 max-w-xl mx-auto mb-8">Limited spots per season. Get in touch to reserve your place on the next departure.</p>
-          <a href="mailto:info@paragliding-atlas.com" className="group inline-flex items-center gap-3 bg-orange-500 hover:bg-orange-600 text-white pl-2 pr-6 py-3 rounded-full transition-all duration-300 font-semibold">
+          <a href="https://w.app/paragliding" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-3 bg-orange-500 hover:bg-orange-600 text-white pl-2 pr-6 py-3 rounded-full transition-all duration-300 font-semibold">
             <span className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7"/></svg>
             </span>
