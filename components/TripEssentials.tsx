@@ -49,9 +49,12 @@ export default function TripEssentials() {
           borderRadius: "14px",
           cursor: "pointer",
           outline: "none",
+          transition: "background-color 200ms ease",
         }}
+        onMouseEnter={e => { e.currentTarget.style.backgroundColor = "#272727"; e.currentTarget.style.boxShadow = "0 0 18px rgba(255,255,255,0.07)"; }}
+        onMouseLeave={e => { e.currentTarget.style.backgroundColor = "#1e1e1e"; e.currentTarget.style.boxShadow = "none"; }}
       >
-        <span style={{ color: "#f97316", fontWeight: 700, fontSize: "16px", letterSpacing: "0.04em" }}>
+          <span style={{ color: "#f97316", fontWeight: 700, fontSize: "clamp(16px, 1.1vw, 20px)", letterSpacing: "0.04em" }}>
           Trip Essentials
         </span>
         <svg
@@ -71,8 +74,8 @@ export default function TripEssentials() {
         <div className="grid grid-cols-3 px-4 py-6">
           {essentials.map((item) => (
             <div key={item.title} className="px-4 py-6 text-center">
-              <p className="text-white font-bold text-sm mb-3">{item.title}</p>
-              <p className="text-gray-400 text-xs leading-relaxed whitespace-pre-line">
+              <p className="text-white font-bold text-sm lg:text-xl mb-3">{item.title}</p>
+              <p className="text-gray-400 text-xs lg:text-base leading-relaxed whitespace-pre-line">
                 {item.content}
               </p>
             </div>
