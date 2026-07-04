@@ -176,26 +176,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Legal Links */}
-      <div className="container mx-auto px-4 py-6">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
-          <div className="flex gap-6">
-            <Link href="/terms" className="hover:text-orange-500 transition">
-              Terms & Conditions
-            </Link>
-            <Link href="/privacy" className="hover:text-orange-500 transition">
-              Privacy Policy
-            </Link>
-            <Link href="/cookies" className="hover:text-orange-500 transition">
-              Cookie Policy
-            </Link>
-          </div>
-          <div>
-            © Paraglidus 2025 2025
-          </div>
-        </div>
-      </div>
-
       {/* Mountain Footer Image */}
       <div className="relative w-full">
         <img 

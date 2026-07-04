@@ -78,6 +78,8 @@ export default function PodcastCarousel() {
   const [phase, setPhase] = useState<AnimPhase>('idle');
   const [direction, setDirection] = useState<'left' | 'right'>('left');
   const [isMobile, setIsMobile] = useState(false);
+  const [prevPulse, setPrevPulse] = useState(false);
+  const [nextPulse, setNextPulse] = useState(false);
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 768);
@@ -131,10 +133,14 @@ export default function PodcastCarousel() {
   };
 
   const nextSlide = () => {
+    setNextPulse(true);
+    setTimeout(() => setNextPulse(false), 500);
     goTo((displayIndex + 1) % totalPages, 'left');
   };
 
   const prevSlide = () => {
+    setPrevPulse(true);
+    setTimeout(() => setPrevPulse(false), 500);
     goTo((displayIndex - 1 + totalPages) % totalPages, 'right');
   };
 
@@ -169,10 +175,17 @@ export default function PodcastCarousel() {
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-orange-500 hover:bg-orange-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition"
+        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full border border-white/20 text-white flex items-center justify-center backdrop-blur-sm"
+        style={{
+          backgroundColor: prevPulse ? '#f97316' : 'rgba(0,0,0,0.6)',
+          borderColor: prevPulse ? '#f97316' : 'rgba(255,255,255,0.2)',
+          transition: prevPulse ? 'background-color 0ms, border-color 0ms' : 'background-color 500ms ease, border-color 500ms ease',
+        }}
         aria-label="Previous"
       >
-        ←
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
       </button>
 
       {/* Carousel Container */}
@@ -209,10 +222,17 @@ export default function PodcastCarousel() {
 
       <button
         onClick={nextSlide}
-        className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-orange-500 hover:bg-orange-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition"
+        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full border border-white/20 text-white flex items-center justify-center backdrop-blur-sm"
+        style={{
+          backgroundColor: nextPulse ? '#f97316' : 'rgba(0,0,0,0.6)',
+          borderColor: nextPulse ? '#f97316' : 'rgba(255,255,255,0.2)',
+          transition: nextPulse ? 'background-color 0ms, border-color 0ms' : 'background-color 500ms ease, border-color 500ms ease',
+        }}
         aria-label="Next"
       >
-        →
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
       </button>
 
       {/* Pagination Dots */}
