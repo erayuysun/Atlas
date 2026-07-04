@@ -223,7 +223,7 @@ export default function Home() {
       </section>
 
       {/* Podcast Section */}
-      <section className="bg-[#1a1a1a] py-16 md:py-24">
+      <section className="bg-[#1a1a1a] py-12 lg:py-16">
         <div className="container mx-auto px-4">
           <p className="text-orange-500 text-sm font-medium mb-2">Find Inspiration in The Paragliding Atlas Podcast</p>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Stories From The Blue Yonder</h2>

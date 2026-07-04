@@ -1,20 +1,26 @@
 import { NextResponse } from 'next/server';
 import crypto from 'crypto';
-import { Redis } from '@upstash/redis';
-
-const redis = new Redis({
-  url: process.env.UPSTASH_REDIS_REST_URL!,
-  token: process.env.UPSTASH_REDIS_REST_TOKEN!,
-});
 
 const PINS_KEY = 'atlas:pins';
 
+function getRedis() {
+  const url = process.env.UPSTASH_REDIS_REST_URL;
+  const token = process.env.UPSTASH_REDIS_REST_TOKEN;
+  if (!url || !token) return null;
+  const { Redis } = require('@upstash/redis');
+  return new Redis({ url, token });
+}
+
 const readPins = async (): Promise<unknown[]> => {
+  const redis = getRedis();
+  if (!redis) return [];
   const pins = await redis.get<unknown[]>(PINS_KEY);
   return pins ?? [];
 };
 
 const writePins = async (pins: unknown[]) => {
+  const redis = getRedis();
+  if (!redis) return;
   await redis.set(PINS_KEY, pins);
 };
 

@@ -11,15 +11,6 @@ const CONTINENTS = [
   { name: "AUSTRALIA",     top: "65%", left: "78%" },
 ];
 
-const ICONS = [
-  "Paragliding.webp",
-  "podcast.webp",
-  "person.webp",
-  "Star Shine.webp",
-  "Network Intel Mode.webp",
-  "Netwrok Intelligence Update.webp",
-];
-
 interface Pin {
   id: number;
   x: number;
@@ -27,14 +18,6 @@ interface Pin {
   icon: string;
   name: string;
   description?: string;
-}
-
-interface PinDraft {
-  x: number;
-  y: number;
-  icon: string;
-  name: string;
-  description: string;
 }
 
 export default function EpisodeMap() {
@@ -45,11 +28,8 @@ export default function EpisodeMap() {
   const [scale,      setScale]      = useState(1);
   const [pan,        setPan]        = useState({ x: 0, y: 0 });
   const [pins,       setPins]       = useState<Pin[]>([]);
-  const [isAdmin,    setIsAdmin]    = useState(false);
-  const [addMode,    setAddMode]    = useState(false);
-  const [draft,      setDraft]      = useState<PinDraft | null>(null);
   const [hoveredPin, setHoveredPin] = useState<number | null>(null);
-  const [saving,     setSaving]     = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
 
   const dragging  = useRef(false);
   const dragStart = useRef({ x: 0, y: 0 });
@@ -58,11 +38,11 @@ export default function EpisodeMap() {
   const containerSize = useRef({ width: 0, height: 0 });
   const panFrame = useRef<number | null>(null);
   const pendingPan = useRef<{ x: number; y: number } | null>(null);
+  const scaleRef = useRef(scale);
+  const panRef = useRef(pan);
 
-  useEffect(() => {
-    const token = localStorage.getItem("atlas_admin_token");
-    if (token) setIsAdmin(true);
-  }, []);
+  useEffect(() => { scaleRef.current = scale; }, [scale]);
+  useEffect(() => { panRef.current = pan; }, [pan]);
 
   useEffect(() => {
     fetch("/api/pins").then(r => r.json()).then(setPins).catch(() => {});
@@ -119,113 +99,66 @@ export default function EpisodeMap() {
 
   const zoomReset = () => { setScale(1); setPan({ x: 0, y: 0 }); };
 
-  const clickToMapPct = (clientX: number, clientY: number) => {
-    const el = containerRef.current;
-    if (!el) return null;
-    const rect = el.getBoundingClientRect();
-    const W = el.offsetWidth, H = el.offsetHeight;
-    const cx = clientX - rect.left, cy = clientY - rect.top;
-    const lx = (cx - W / 2) / scale - pan.x / scale + W / 2;
-    const ly = (cy - H / 2) / scale - pan.y / scale + H / 2;
-    return { x: (lx / W) * 100, y: (ly / H) * 100 };
-  };
-
   const onMouseDown = (e: React.MouseEvent) => {
     if (e.button !== 0) return;
-    dragging.current = true; didDrag.current = false;
+    e.preventDefault();
+    dragging.current = true;
+    didDrag.current = false;
+    setIsDragging(true);
     dragStart.current = { x: e.clientX, y: e.clientY };
-    panStart.current = { ...pan };
+    panStart.current = { ...panRef.current };
   };
-  const onMouseMove = (e: React.MouseEvent) => {
-    if (!dragging.current) return;
-    const dx = e.clientX - dragStart.current.x, dy = e.clientY - dragStart.current.y;
-    if (Math.abs(dx) > 3 || Math.abs(dy) > 3) didDrag.current = true;
-    if (scale > 1) schedulePan(clampPan(panStart.current.x + dx, panStart.current.y + dy, scale));
-  };
-  const onMouseUp = (e: React.MouseEvent) => {
-    const wasDragging = didDrag.current;
-    dragging.current = false; didDrag.current = false;
-    if (addMode && !wasDragging) {
-      const pos = clickToMapPct(e.clientX, e.clientY);
-      if (pos) setDraft({ x: pos.x, y: pos.y, icon: ICONS[0], name: "", description: "" });
-    }
-  };
+
+  useEffect(() => {
+    const onGlobalMouseMove = (e: MouseEvent) => {
+      if (!dragging.current) return;
+      const dx = e.clientX - dragStart.current.x, dy = e.clientY - dragStart.current.y;
+      if (Math.abs(dx) > 3 || Math.abs(dy) > 3) didDrag.current = true;
+      if (scaleRef.current > 1) schedulePan(clampPan(panStart.current.x + dx, panStart.current.y + dy, scaleRef.current));
+    };
+
+    const stopDrag = () => {
+      if (!dragging.current) return;
+      dragging.current = false;
+      didDrag.current = false;
+      setIsDragging(false);
+    };
+
+    window.addEventListener('mousemove', onGlobalMouseMove);
+    window.addEventListener('mouseup', stopDrag);
+    window.addEventListener('mouseleave', stopDrag);
+    window.addEventListener('blur', stopDrag);
+
+    return () => {
+      window.removeEventListener('mousemove', onGlobalMouseMove);
+      window.removeEventListener('mouseup', stopDrag);
+      window.removeEventListener('mouseleave', stopDrag);
+      window.removeEventListener('blur', stopDrag);
+    };
+  }, [schedulePan, clampPan]);
   const onTouchStart = (e: React.TouchEvent) => {
     if (e.touches.length !== 1) return;
     dragging.current = true; didDrag.current = false;
     dragStart.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
-    panStart.current = { ...pan };
+    panStart.current = { ...panRef.current };
   };
   const onTouchMove = (e: React.TouchEvent) => {
     if (!dragging.current || e.touches.length !== 1) return;
     const dx = e.touches[0].clientX - dragStart.current.x, dy = e.touches[0].clientY - dragStart.current.y;
     if (Math.abs(dx) > 3 || Math.abs(dy) > 3) didDrag.current = true;
-    if (scale > 1) schedulePan(clampPan(panStart.current.x + dx, panStart.current.y + dy, scale));
+    if (scaleRef.current > 1) schedulePan(clampPan(panStart.current.x + dx, panStart.current.y + dy, scaleRef.current));
   };
-  const onTouchEnd = (e: React.TouchEvent) => {
-    const wasDragging = didDrag.current;
-    dragging.current = false; didDrag.current = false;
-    if (addMode && !wasDragging && e.changedTouches.length === 1) {
-      const pos = clickToMapPct(e.changedTouches[0].clientX, e.changedTouches[0].clientY);
-      if (pos) setDraft({ x: pos.x, y: pos.y, icon: ICONS[0], name: "", description: "" });
-    }
-  };
-
-  const savePin = async () => {
-    if (!draft || !draft.name.trim()) return;
-    setSaving(true);
-    const token = localStorage.getItem("atlas_admin_token");
-    try {
-      const res = await fetch("/api/pins", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
-        body: JSON.stringify(draft),
-      });
-      if (res.ok) {
-        const newPin = await res.json();
-        setPins(p => [...p, newPin]);
-        setDraft(null);
-        setAddMode(false);
-      }
-    } finally {
-      setSaving(false);
-    }
-  };
-
-  const deletePin = async (id: number) => {
-    const token = localStorage.getItem("atlas_admin_token");
-    await fetch("/api/pins", {
-      method: "DELETE",
-      headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
-      body: JSON.stringify({ id }),
-    });
-    setPins(p => p.filter(pin => pin.id !== id));
+  const onTouchEnd = () => {
+    dragging.current = false;
+    didDrag.current = false;
   };
 
   const labelOpacity = Math.max(0, 1 - (scale - 1.2) / 0.3);
-  const mapCursor = addMode ? "crosshair" : scale > 1 ? (dragging.current ? "grabbing" : "grab") : "default";
+  const mapCursor = isDragging ? "grabbing" : scale > 1 ? "grab" : "default";
 
   return (
     <div ref={sectionRef} className="relative w-full">
 
-      {/* Admin toolbar */}
-      {isAdmin && (
-        <div className="absolute top-3 left-3 z-20 flex items-center gap-2">
-          <button
-            onClick={() => { setAddMode(m => !m); setDraft(null); }}
-            className={`px-3 py-1.5 rounded-full text-xs font-semibold transition ${addMode ? "bg-orange-500 text-white" : "bg-black/60 text-white hover:bg-black/80"}`}
-          >
-            {addMode ? "✕ Cancel" : "+ Add Pin"}
-          </button>
-          {addMode && (
-            <span className="bg-black/60 text-gray-300 text-xs px-3 py-1.5 rounded-full">
-              Click anywhere on the map
-            </span>
-          )}
-        </div>
-      )}
-
-      {/* Zoom slider */}
       <div className="absolute right-3 top-1/2 -translate-y-1/2 z-10 flex flex-col items-center gap-2 bg-black/60 rounded-full px-2 py-3">
         <span className="text-white text-xs font-bold select-none">+</span>
         <input
@@ -246,15 +179,11 @@ export default function EpisodeMap() {
         )}
       </div>
 
-      {/* Map */}
       <div
         ref={containerRef}
         className="relative w-full aspect-[2/1] bg-gray-800 rounded-xl overflow-hidden"
         style={{ cursor: mapCursor, touchAction: scale > 1 ? "none" : "pan-y" }}
         onMouseDown={onMouseDown}
-        onMouseMove={onMouseMove}
-        onMouseUp={onMouseUp}
-        onMouseLeave={() => { dragging.current = false; didDrag.current = false; }}
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
@@ -312,64 +241,10 @@ export default function EpisodeMap() {
                 <p className="font-semibold">{pin.name}</p>
                 {pin.description && <p className="text-gray-300 mt-0.5">{pin.description}</p>}
               </div>
-              {isAdmin && (
-                <button
-                  onClick={e => { e.stopPropagation(); deletePin(pin.id); }}
-                  className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 hover:bg-red-600 text-white rounded-full text-[10px] flex items-center justify-center opacity-0 group-hover:opacity-100 transition pointer-events-auto"
-                >×</button>
-              )}
             </div>
           ))}
         </div>
       </div>
-
-      {/* Add Pin modal */}
-      {draft && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4" onClick={() => setDraft(null)}>
-          <div className="bg-[#1a1a1a] border border-gray-700 rounded-2xl p-6 w-full max-w-sm" onClick={e => e.stopPropagation()}>
-            <h3 className="text-white font-bold text-lg mb-4">New Pin</h3>
-
-            <p className="text-gray-400 text-xs mb-2">Choose icon</p>
-            <div className="grid grid-cols-6 gap-2 mb-4">
-              {ICONS.map(icon => (
-                <button
-                  key={icon}
-                  onClick={() => setDraft(d => d ? { ...d, icon } : d)}
-                  className={`p-1.5 rounded-lg border-2 transition ${draft.icon === icon ? "border-orange-500" : "border-transparent hover:border-gray-600"}`}
-                >
-                  <img src={`/Media/hp/Icons/${icon}`} alt={icon} className="w-full h-auto" style={{ filter: "brightness(0) saturate(100%) invert(55%) sepia(84%) saturate(1000%) hue-rotate(352deg) brightness(101%)" }} draggable={false} />
-                </button>
-              ))}
-            </div>
-
-            <input
-              type="text"
-              placeholder="Pin name *"
-              value={draft.name}
-              onChange={e => setDraft(d => d ? { ...d, name: e.target.value } : d)}
-              className="w-full px-4 py-2 bg-transparent border border-gray-700 focus:border-orange-500 rounded-full text-white text-sm outline-none transition mb-3 placeholder-gray-500"
-            />
-            <input
-              type="text"
-              placeholder="Description (optional)"
-              value={draft.description}
-              onChange={e => setDraft(d => d ? { ...d, description: e.target.value } : d)}
-              className="w-full px-4 py-2 bg-transparent border border-gray-700 focus:border-orange-500 rounded-full text-white text-sm outline-none transition mb-5 placeholder-gray-500"
-            />
-
-            <div className="flex gap-3">
-              <button onClick={() => setDraft(null)} className="flex-1 py-2 border border-gray-700 hover:border-gray-500 text-white rounded-full text-sm transition">Cancel</button>
-              <button
-                onClick={savePin}
-                disabled={!draft.name.trim() || saving}
-                className="flex-1 py-2 bg-orange-500 hover:bg-orange-600 disabled:opacity-40 text-white font-semibold rounded-full text-sm transition"
-              >
-                {saving ? "Saving…" : "Save Pin"}
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
