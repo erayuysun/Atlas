@@ -78,8 +78,23 @@ export default function PodcastCarousel() {
   const [phase, setPhase] = useState<AnimPhase>('idle');
   const [direction, setDirection] = useState<'left' | 'right'>('left');
   const [isMobile, setIsMobile] = useState(false);
-  const [prevPulse, setPrevPulse] = useState(false);
-  const [nextPulse, setNextPulse] = useState(false);
+  const prevBtnRef = useRef<HTMLButtonElement>(null);
+  const nextBtnRef = useRef<HTMLButtonElement>(null);
+
+  const pulseBtn = (ref: React.RefObject<HTMLButtonElement | null>) => {
+    const el = ref.current;
+    if (!el) return;
+    el.style.transition = 'background-color 0ms, border-color 0ms';
+    el.style.backgroundColor = '#f97316';
+    el.style.borderColor = '#f97316';
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        el.style.transition = 'background-color 500ms ease, border-color 500ms ease';
+        el.style.backgroundColor = 'rgba(0,0,0,0.6)';
+        el.style.borderColor = 'rgba(255,255,255,0.2)';
+      });
+    });
+  };
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 768);
@@ -133,14 +148,12 @@ export default function PodcastCarousel() {
   };
 
   const nextSlide = () => {
-    setNextPulse(true);
-    setTimeout(() => setNextPulse(false), 500);
+    pulseBtn(nextBtnRef);
     goTo((displayIndex + 1) % totalPages, 'left');
   };
 
   const prevSlide = () => {
-    setPrevPulse(true);
-    setTimeout(() => setPrevPulse(false), 500);
+    pulseBtn(prevBtnRef);
     goTo((displayIndex - 1 + totalPages) % totalPages, 'right');
   };
 
@@ -148,6 +161,12 @@ export default function PodcastCarousel() {
     displayIndex * itemsPerPage,
     (displayIndex + 1) * itemsPerPage
   );
+
+  // Pad with nulls so every page has the same number of items → no layout shift
+  const paddedGuests: (typeof podcastGuests[0] | null)[] = [
+    ...visibleGuests,
+    ...Array(itemsPerPage - visibleGuests.length).fill(null),
+  ];
 
   const slideStyle: React.CSSProperties =
     phase === 'exit'
@@ -174,13 +193,10 @@ export default function PodcastCarousel() {
     <div className="relative px-14 overflow-hidden">
       {/* Navigation Arrows */}
       <button
+        ref={prevBtnRef}
         onClick={prevSlide}
-        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full border border-white/20 text-white flex items-center justify-center backdrop-blur-sm"
-        style={{
-          backgroundColor: prevPulse ? '#f97316' : 'rgba(0,0,0,0.6)',
-          borderColor: prevPulse ? '#f97316' : 'rgba(255,255,255,0.2)',
-          transition: prevPulse ? 'background-color 0ms, border-color 0ms' : 'background-color 500ms ease, border-color 500ms ease',
-        }}
+        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full border text-white flex items-center justify-center backdrop-blur-sm"
+        style={{ backgroundColor: 'rgba(0,0,0,0.6)', borderColor: 'rgba(255,255,255,0.2)' }}
         aria-label="Previous"
       >
         <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
@@ -194,10 +210,10 @@ export default function PodcastCarousel() {
         className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6"
         style={{ ...slideStyle }}
       >
-        {visibleGuests.map((guest) => (
-          <div key={guest.id} className="text-center group">
+        {paddedGuests.map((guest, i) => (
+          <div key={guest ? guest.id : `pad-${i}`} className="text-center group">
+            {guest ? (
             <div className="relative w-full rounded-lg overflow-hidden">
-              {/* Portrait Image */}
               <img
                 src={guest.image}
                 alt={guest.name}
@@ -205,8 +221,6 @@ export default function PodcastCarousel() {
                 loading="eager"
                 fetchPriority="high"
               />
-              
-              {/* Hover Overlay with Template/Compass */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <img
                   src="/Media/hp/Homepage Episode Tiles/Template.webp"
@@ -216,18 +230,18 @@ export default function PodcastCarousel() {
                 />
               </div>
             </div>
+            ) : (
+              <div className="w-full aspect-[3/4] rounded-lg invisible" />
+            )}
           </div>
         ))}
       </div>
 
       <button
+        ref={nextBtnRef}
         onClick={nextSlide}
-        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full border border-white/20 text-white flex items-center justify-center backdrop-blur-sm"
-        style={{
-          backgroundColor: nextPulse ? '#f97316' : 'rgba(0,0,0,0.6)',
-          borderColor: nextPulse ? '#f97316' : 'rgba(255,255,255,0.2)',
-          transition: nextPulse ? 'background-color 0ms, border-color 0ms' : 'background-color 500ms ease, border-color 500ms ease',
-        }}
+        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full border text-white flex items-center justify-center backdrop-blur-sm"
+        style={{ backgroundColor: 'rgba(0,0,0,0.6)', borderColor: 'rgba(255,255,255,0.2)' }}
         aria-label="Next"
       >
         <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
