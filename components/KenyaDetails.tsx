@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 
@@ -32,12 +32,12 @@ const INFO_CONTENT: Record<InfoTab, string> = {
 };
 
 const GALLERY = [
-  "/Media/Kenya/Gallery/1.jpg",
-  "/Media/Kenya/Gallery/2.jpg",
-  "/Media/Kenya/Gallery/3.jpg",
-  "/Media/Kenya/Gallery/4.jpg",
-  "/Media/Kenya/Gallery/5.jpg",
-  "/Media/Kenya/Gallery/6.jpg",
+  "/Media/Kenya/Gallery/1.webp",
+  "/Media/Kenya/Gallery/2.webp",
+  "/Media/Kenya/Gallery/3.webp",
+  "/Media/Kenya/Gallery/4.webp",
+  "/Media/Kenya/Gallery/5.webp",
+  "/Media/Kenya/Gallery/6.webp",
 ];
 
 const STATS = [

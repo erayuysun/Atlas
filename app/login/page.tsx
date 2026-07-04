@@ -40,7 +40,7 @@ export default function LoginPage() {
       <div className="w-full max-w-sm">
         {/* Logo */}
         <div className="flex justify-center mb-10">
-          <img src="/Media/hp/logonobg.png" alt="Atlas" className="h-24 w-auto" />
+          <img src="/Media/hp/logonobg.webp" alt="Atlas" className="h-24 w-auto" />
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-5">

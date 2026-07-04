@@ -1,4 +1,4 @@
-﻿import Image from "next/image";
+import Image from "next/image";
 import PodcastCarousel from "@/components/PodcastCarousel";
 import EpisodeMap from "@/components/EpisodeMap";
 import Footer from "@/components/Footer";
@@ -8,7 +8,7 @@ export default function Home() {
     <div className="bg-[#0a0a0a] text-white">
       {/* Hero Section - starts from top, behind fixed navbar */}
       <section className="relative h-[33vh] md:h-[80vh] w-full overflow-hidden -mt-16 md:-mt-20">
-        <div className="w-full h-full bg-cover bg-center" style={{backgroundImage: "url('/Media/hp/homapage%20image.png')"}} />
+        <div className="w-full h-full bg-cover bg-center" style={{backgroundImage: "url('/Media/hp/homapage%20image.webp')"}} />
         {/* Gradient overlay: transparent in middle, dark at bottom */}
         <div className="absolute inset-0" style={{
           background: 'linear-gradient(to bottom, transparent 40%, rgba(10,10,10,0.5) 65%, rgba(10,10,10,0.85) 80%, #0a0a0a 100%)'
@@ -20,7 +20,7 @@ export default function Home() {
         {/* Kenya */}
         <div className="grid md:grid-cols-2 gap-8 mb-12 items-center">
           <div className="relative h-64 md:h-80 rounded-lg overflow-hidden">
-            <div className="w-full h-full bg-cover bg-center" style={{backgroundImage: "url('/Media/hp/hp_row1.png')"}} />
+            <div className="w-full h-full bg-cover bg-center" style={{backgroundImage: "url('/Media/hp/hp_row1.webp')"}} />
           </div>
           <div>
             <p className="text-orange-500 text-sm font-medium mb-2">Explore East Africa From Above</p>
@@ -44,7 +44,7 @@ export default function Home() {
 
         <div className="grid md:grid-cols-2 gap-8 mb-12 items-center">
           <div className="md:order-2 relative h-64 md:h-80 rounded-lg overflow-hidden">
-            <div className="w-full h-full bg-cover bg-center" style={{backgroundImage: "url('/Media/hp/row2.png')"}} />
+            <div className="w-full h-full bg-cover bg-center" style={{backgroundImage: "url('/Media/hp/row2.webp')"}} />
           </div>
           <div className="md:order-1">
             <p className="text-orange-500 text-sm font-medium mb-2">Sky Is Not The Limit</p>
@@ -69,7 +69,7 @@ export default function Home() {
         {/* India/Himalayas */}
         <div className="grid md:grid-cols-2 gap-8 mb-12 items-center">
           <div className="relative h-64 md:h-80 rounded-lg overflow-hidden">
-            <div className="w-full h-full bg-cover bg-center" style={{backgroundImage: "url('/Media/hp/row3.png')"}} />
+            <div className="w-full h-full bg-cover bg-center" style={{backgroundImage: "url('/Media/hp/row3.webp')"}} />
           </div>
           <div>
             <p className="text-orange-500 text-sm font-medium mb-2">Soar the Land of the Incas</p>
@@ -94,7 +94,7 @@ export default function Home() {
         {/* Beyond Roads */}
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="md:order-2 relative h-64 md:h-80 rounded-lg overflow-hidden">
-            <div className="w-full h-full bg-cover bg-center" style={{backgroundImage: "url('/Media/hp/row4.png')"}} />
+            <div className="w-full h-full bg-cover bg-center" style={{backgroundImage: "url('/Media/hp/row4.webp')"}} />
           </div>
           <div className="md:order-1">
             <p className="text-orange-500 text-sm font-medium mb-2">A Flight to the Ends of the Earth</p>

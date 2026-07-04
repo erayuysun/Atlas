@@ -1,4 +1,4 @@
-﻿import Footer from "@/components/Footer";
+import Footer from "@/components/Footer";
 import TripEssentials from "@/components/TripEssentials";
 import KnowBeforeYouGo from "@/components/KnowBeforeYouGo";
 import KenyaDetails from "@/components/KenyaDetails";
@@ -9,7 +9,7 @@ export default function KenyaPage() {
 
       {/* Hero */}
       <section className="relative w-full overflow-hidden -mt-16 md:-mt-20">
-        <img src="/Media/Kenya/hero.png" alt="Kenya paragliding" className="w-full block max-h-[100svh] object-cover"/>
+        <img src="/Media/Kenya/hero.webp" alt="Kenya paragliding" className="w-full block max-h-[100svh] object-cover"/>
         <div className="absolute inset-0" style={{background:"linear-gradient(to bottom,rgba(10,10,10,0.35) 0%,transparent 18%,transparent 50%,rgba(10,10,10,0.55) 75%,rgba(10,10,10,0.92) 92%,#0a0a0a 100%)"}}/>
         <div className="absolute top-0 left-0 px-4 md:px-14 pt-20 md:pt-32">
           <h1 className="text-4xl md:text-9xl tracking-widest leading-none mb-2" style={{fontFamily:"var(--font-barlow)",fontWeight:300,textShadow:"0 2px 20px rgba(0,0,0,0.5)"}}>KENYA</h1>
@@ -17,7 +17,7 @@ export default function KenyaPage() {
             Fly where humankind first walked<br/>Rift Valley&#39;s endless skies await
           </p>
         </div>
-        <div className="absolute bottom-[5%] left-0 w-1/2 h-[30%] md:h-[40%] bg-contain bg-no-repeat bg-left-bottom pointer-events-none" style={{backgroundImage:"url('/Media/Kenya/footprints.png')"}}/>
+        <div className="absolute bottom-[5%] left-0 w-1/2 h-[30%] md:h-[40%] bg-contain bg-no-repeat bg-left-bottom pointer-events-none" style={{backgroundImage:"url('/Media/Kenya/footprints.webp')"}}/>
       </section>
 
       {/* Tagline */}
@@ -40,7 +40,7 @@ export default function KenyaPage() {
             </div>
           </div>
           <div className="w-1/2 rounded-xl overflow-hidden relative">
-            <img src="/Media/Kenya/row1.png" alt="Kenya map" className="w-full h-full object-cover"/>
+            <img src="/Media/Kenya/row1.webp" alt="Kenya map" className="w-full h-full object-cover"/>
             <div className="absolute inset-0 rounded-xl" style={{background:"linear-gradient(to right, rgba(10,10,10,0.55) 0%, transparent 40%)"}}/>
           </div>
         </div>
@@ -48,7 +48,7 @@ export default function KenyaPage() {
         {/* Row 2 — image left, text right */}
         <div className="flex h-56 md:h-80">
           <div className="w-1/2 rounded-xl overflow-hidden relative">
-            <img src="/Media/Kenya/row2.png" alt="Rift Valley" className="w-full h-full object-cover"/>
+            <img src="/Media/Kenya/row2.webp" alt="Rift Valley" className="w-full h-full object-cover"/>
             <div className="absolute inset-0 rounded-xl" style={{background:"linear-gradient(to left, rgba(10,10,10,0.55) 0%, transparent 40%)"}}/>
           </div>
           <div className="w-1/2 flex items-center justify-start">
@@ -70,7 +70,7 @@ export default function KenyaPage() {
             </div>
           </div>
           <div className="w-1/2 rounded-xl overflow-hidden relative">
-            <img src="/Media/Kenya/row3.png" alt="Kijabe Hill" className="w-full h-full object-cover"/>
+            <img src="/Media/Kenya/row3.webp" alt="Kijabe Hill" className="w-full h-full object-cover"/>
             <div className="absolute inset-0 rounded-xl" style={{background:"linear-gradient(to right, rgba(10,10,10,0.55) 0%, transparent 40%)"}}/>
           </div>
         </div>
@@ -78,7 +78,7 @@ export default function KenyaPage() {
         {/* Row 4 — image left, text right */}
         <div className="flex h-56 md:h-80">
           <div className="w-1/2 rounded-xl overflow-hidden relative">
-            <img src="/Media/Kenya/row4.png" alt="Machakos Hills" className="w-full h-full object-cover"/>
+            <img src="/Media/Kenya/row4.webp" alt="Machakos Hills" className="w-full h-full object-cover"/>
             <div className="absolute inset-0 rounded-xl" style={{background:"linear-gradient(to left, rgba(10,10,10,0.55) 0%, transparent 40%)"}}/>
           </div>
           <div className="w-1/2 flex items-center justify-start">
@@ -100,7 +100,7 @@ export default function KenyaPage() {
             </div>
           </div>
           <div className="w-1/2 rounded-xl overflow-hidden relative">
-            <img src="/Media/Kenya/row5.png" alt="Chyulu Hills" className="w-full h-full object-cover"/>
+            <img src="/Media/Kenya/row5.webp" alt="Chyulu Hills" className="w-full h-full object-cover"/>
             <div className="absolute inset-0 rounded-xl" style={{background:"linear-gradient(to right, rgba(10,10,10,0.55) 0%, transparent 40%)"}}/>
           </div>
         </div>

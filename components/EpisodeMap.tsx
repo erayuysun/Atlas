@@ -12,12 +12,12 @@ const CONTINENTS = [
 ];
 
 const ICONS = [
-  "Paragliding.png",
-  "podcast.png",
-  "person.png",
-  "Star Shine.png",
-  "Network Intel Mode.png",
-  "Netwrok Intelligence Update.png",
+  "Paragliding.webp",
+  "podcast.webp",
+  "person.webp",
+  "Star Shine.webp",
+  "Network Intel Mode.webp",
+  "Netwrok Intelligence Update.webp",
 ];
 
 interface Pin {
@@ -233,7 +233,7 @@ export default function EpisodeMap() {
           }}
         >
           <img
-            src="/Media/hp/mapNoName.png"
+            src="/Media/hp/mapNoName.webp"
             alt="World Map"
             className="absolute inset-0 w-full h-full object-cover"
             style={{ opacity: visible ? 1 : 0, transition: "opacity 900ms ease" }}
@@ -265,7 +265,7 @@ export default function EpisodeMap() {
               onMouseLeave={() => setHoveredPin(null)}
             >
               <img
-                src={`/Media/hp/icons/${pin.icon}`}
+                src={`/Media/hp/Icons/${pin.icon.replace(/\.(png|jpe?g)$/i, ".webp")}`}
                 alt={pin.name}
                 className="w-8 h-8 drop-shadow-lg"
                 style={{ filter: "brightness(0) saturate(100%) invert(55%) sepia(84%) saturate(1000%) hue-rotate(352deg) brightness(101%)" }}
@@ -300,7 +300,7 @@ export default function EpisodeMap() {
                   onClick={() => setDraft(d => d ? { ...d, icon } : d)}
                   className={`p-1.5 rounded-lg border-2 transition ${draft.icon === icon ? "border-orange-500" : "border-transparent hover:border-gray-600"}`}
                 >
-                  <img src={`/Media/hp/icons/${icon}`} alt={icon} className="w-full h-auto" style={{ filter: "brightness(0) saturate(100%) invert(55%) sepia(84%) saturate(1000%) hue-rotate(352deg) brightness(101%)" }} draggable={false} />
+                  <img src={`/Media/hp/Icons/${icon}`} alt={icon} className="w-full h-auto" style={{ filter: "brightness(0) saturate(100%) invert(55%) sepia(84%) saturate(1000%) hue-rotate(352deg) brightness(101%)" }} draggable={false} />
                 </button>
               ))}
             </div>

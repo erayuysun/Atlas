@@ -74,7 +74,7 @@ export default function Footer() {
             {/* Company Info */}
             <div>
               <img 
-                src="/Media/hp/logonobg.png" 
+                src="/Media/hp/logonobg.webp" 
                 alt="ATLAS" 
                 className="h-16 w-auto mb-4"
               />
@@ -199,7 +199,7 @@ export default function Footer() {
       {/* Mountain Footer Image */}
       <div className="relative w-full">
         <img 
-          src="/Media/footerimage.png" 
+          src="/Media/footerimage.webp" 
           alt="Mountain landscape" 
           className="w-full h-auto"
         />

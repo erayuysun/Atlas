@@ -5,67 +5,67 @@ import { useState, useRef, useEffect } from "react";
 const podcastGuests = [
   {
     id: 1,
-    image: "/Media/hp/Homepage Episode Tiles/a (1).png",
+    image: "/Media/hp/Homepage Episode Tiles/a (1).webp",
     title: "FIELD PROTOCOLS FOR REWIRING RISK INTUITION",
     name: "WILL GADD"
   },
   {
     id: 2,
-    image: "/Media/hp/Homepage Episode Tiles/a (2).png",
+    image: "/Media/hp/Homepage Episode Tiles/a (2).webp",
     title: "CHALLENGES, CHANGE & FUTURE OF PARAGLIDING",
     name: "PAL TAKATS"
   },
   {
     id: 3,
-    image: "/Media/hp/Homepage Episode Tiles/a (3).png",
+    image: "/Media/hp/Homepage Episode Tiles/a (3).webp",
     title: "FLYING TO WIN",
     name: "HONORIN HAMARD"
   },
   {
     id: 4,
-    image: "/Media/hp/Homepage Episode Tiles/a (4).png",
+    image: "/Media/hp/Homepage Episode Tiles/a (4).webp",
     title: "THE JOURNEY WITHIN MAPPING OUR QUEST",
     name: "MAXIME PINOT"
   },
   {
     id: 5,
-    image: "/Media/hp/Homepage Episode Tiles/a (5).png",
+    image: "/Media/hp/Homepage Episode Tiles/a (5).webp",
     title: "MASTER FEAR, BUILD RESILIENCE & FIND JOY",
     name: "KINGA MASZTALERZ"
   },
   {
     id: 6,
-    image: "/Media/hp/Homepage Episode Tiles/a (6).png",
+    image: "/Media/hp/Homepage Episode Tiles/a (6).webp",
     title: "UNTOLD TRUTH ABOUT RESERVE DEPLOYMENT",
     name: "URS HAARI"
   },
   {
     id: 7,
-    image: "/Media/hp/Homepage Episode Tiles/a (7).png",
+    image: "/Media/hp/Homepage Episode Tiles/a (7).webp",
     title: "EPISODE 7",
     name: "GUEST NAME 7"
   },
   {
     id: 8,
-    image: "/Media/hp/Homepage Episode Tiles/a (8).png",
+    image: "/Media/hp/Homepage Episode Tiles/a (8).webp",
     title: "EPISODE 8",
     name: "GUEST NAME 8"
   },
   {
     id: 9,
-    image: "/Media/hp/Homepage Episode Tiles/a (9).png",
+    image: "/Media/hp/Homepage Episode Tiles/a (9).webp",
     title: "EPISODE 9",
     name: "GUEST NAME 9"
   },
   {
     id: 10,
-    image: "/Media/hp/Homepage Episode Tiles/a (10).png",
+    image: "/Media/hp/Homepage Episode Tiles/a (10).webp",
     title: "EPISODE 10",
     name: "GUEST NAME 10"
   },
   {
     id: 11,
-    image: "/Media/hp/Homepage Episode Tiles/a (11).png",
+    image: "/Media/hp/Homepage Episode Tiles/a (11).webp",
     title: "EPISODE 11",
     name: "GUEST NAME 11"
   }
@@ -101,7 +101,7 @@ export default function PodcastCarousel() {
     const templateLink = document.createElement('link');
     templateLink.rel = 'preload';
     templateLink.as = 'image';
-    templateLink.href = '/Media/hp/Homepage Episode Tiles/Template.png';
+    templateLink.href = '/Media/hp/Homepage Episode Tiles/Template.webp';
     document.head.appendChild(templateLink);
   }, []);
 
@@ -209,7 +209,7 @@ export default function PodcastCarousel() {
               {/* Hover Overlay with Template/Compass */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <img
-                  src="/Media/hp/Homepage Episode Tiles/Template.png"
+                  src="/Media/hp/Homepage Episode Tiles/Template.webp"
                   alt="Episode overlay"
                   className="w-full h-full object-cover"
                   loading="eager"

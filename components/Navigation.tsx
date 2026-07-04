@@ -70,7 +70,7 @@ export default function Navigation() {
             {/* Center Logo — absolutely centered so it stays perfectly centered at any screen size */}
             <Link href="/atlas/kenya" className="absolute left-1/2 -translate-x-1/2 flex-shrink-0">
               <img 
-                src="/Media/hp/logonobg.png" 
+                src="/Media/hp/logonobg.webp" 
                 alt="ATLAS" 
                 className="h-32 md:h-40 w-auto"
               />
