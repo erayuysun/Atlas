@@ -14,8 +14,9 @@ function getRedis() {
 const readPins = async (): Promise<unknown[]> => {
   const redis = getRedis();
   if (!redis) return [];
-  const pins = await redis.get<unknown[]>(PINS_KEY);
-  return pins ?? [];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const pins = await (redis as any).get(PINS_KEY);
+  return (pins as unknown[]) ?? [];
 };
 
 const writePins = async (pins: unknown[]) => {
