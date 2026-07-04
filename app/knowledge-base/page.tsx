@@ -61,6 +61,8 @@ export default function KnowledgeBasePage() {
           alt="Atlas knowledge network"
           fill
           priority
+          loading="eager"
+          fetchPriority="high"
           sizes="(max-width: 1500px) 100vw, 1500px"
           className="object-cover object-[38%_center] md:object-center"
         />
@@ -184,31 +186,77 @@ export default function KnowledgeBasePage() {
         </div>
       </section>
 
-      <section className="border-y border-white/10 bg-[#131313]">
-        <div className="container mx-auto grid gap-8 px-4 py-16 md:grid-cols-[1fr_auto] md:items-center md:py-20">
-          <div>
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#8f83ff]">
-              Knowledge grows when it is shared
-            </p>
-            <h2 className="max-w-3xl text-3xl font-bold md:text-4xl">
-              Have a subject you want us to break down?
+      <section id="safety-disclaimer" className="container mx-auto scroll-mt-24 px-4 py-12 md:py-16">
+        <details className="group overflow-hidden rounded-2xl border border-white/10 bg-[#131419]">
+          <summary className="flex cursor-pointer list-none items-center justify-between gap-6 px-6 py-5 transition hover:bg-white/[0.025] md:px-8 [&::-webkit-details-marker]:hidden">
+            <div>
+              <p className="text-lg font-bold text-white">Safety Disclaimer</p>
+              <p className="mt-1 text-sm text-gray-400">
+                Important information about using the Atlas Knowledge Base.
+              </p>
+            </div>
+            <span className="flex h-9 w-9 flex-none items-center justify-center rounded-full border border-white/10 text-gray-300 transition duration-300 group-open:rotate-180 group-open:border-orange-500/50 group-open:text-orange-400">
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="m6 9 6 6 6-6" />
+              </svg>
+            </span>
+          </summary>
+
+          <div className="border-t border-white/10 px-6 py-8 text-center text-sm leading-relaxed text-gray-300 md:px-12 md:py-10">
+            <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl">
+              Disclaimer
             </h2>
-            <p className="mt-4 max-w-2xl text-gray-400">
-              Tell us what would make your next flight safer, smarter, or more rewarding.
-            </p>
+            <div className="mx-auto mt-7 max-w-4xl space-y-5">
+              <p>
+                This information is published by Paragliding Atlas in the
+                interest of exchanging knowledge for the sake of flight safety
+                in paragliding. Every effort has been made to ensure that the
+                information and analysis contained in this Knowledge Base are
+                as accurate and complete as possible. Despite these
+                precautions, any action you take based on information found
+                here is entirely at your own risk. We shall not be liable for
+                any losses or damages connected with the use of this content.
+              </p>
+              <p>
+                The information contained in this Knowledge Base is not
+                intended to, and cannot, replace the individual advice of a
+                professional instructor in the relevant field at the time of
+                flight.
+              </p>
+              <p className="font-bold text-gray-100">
+                It is solely your responsibility to evaluate the accuracy,
+                completeness, and usefulness of all opinions, advice, and other
+                information provided through this resource.
+              </p>
+              <p>
+                Our goal is to offer an extensive online information resource
+                to paragliding pilots worldwide. Knowledge is most valuable
+                when it is shared, and more aviation knowledge can mean fewer
+                accidents.
+              </p>
+              <p className="font-bold text-white">
+                We strongly encourage{" "}
+                <span className="text-orange-500">Flight Safety.</span>
+              </p>
+            </div>
+            <div className="mt-8 flex justify-start">
+              <Link
+                href="/knowledge-base/safety-disclosure"
+                className="group inline-flex items-center gap-2 text-xs font-semibold text-orange-500 transition hover:text-orange-300"
+              >
+                Safety Information &amp; Disclosure Statements
+                <svg
+                  className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="m9 5 7 7-7 7" />
+                </svg>
+              </Link>
+            </div>
           </div>
-          <a
-            href="https://w.app/paragliding"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex w-fit items-center gap-3 rounded-full bg-orange-500 px-6 py-3 font-semibold transition hover:bg-orange-400"
-          >
-            Suggest a topic
-            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="m9 5 7 7-7 7" />
-            </svg>
-          </a>
-        </div>
+        </details>
       </section>
 
       <Footer />
