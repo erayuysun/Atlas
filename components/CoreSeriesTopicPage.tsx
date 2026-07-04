@@ -10,6 +10,8 @@ type CoreSeriesTopicPageProps = {
   highlights: string[];
   videoCount: number;
   videoIds?: string[];
+  backHref?: string;
+  backLabel?: string;
 };
 
 export default function CoreSeriesTopicPage({
@@ -18,6 +20,8 @@ export default function CoreSeriesTopicPage({
   highlights,
   videoCount,
   videoIds = [],
+  backHref = "/knowledge-base/core-series",
+  backLabel = "Core Series",
 }: CoreSeriesTopicPageProps) {
   const [selectedVideo, setSelectedVideo] = useState<number | null>(null);
   const activeVideoId =
@@ -27,15 +31,24 @@ export default function CoreSeriesTopicPage({
     <div className="min-h-screen bg-[#111216] text-white">
       <main className="px-5 pb-20 pt-10 md:px-8 md:pb-28 md:pt-16">
         <div className="mx-auto max-w-[1340px]">
-          <Link
-            href="/knowledge-base/core-series"
-            className="mb-8 inline-flex items-center gap-2 text-sm font-semibold text-gray-400 transition hover:text-orange-400"
-          >
-            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="m15 19-7-7 7-7" />
-            </svg>
-            Core Series
-          </Link>
+          <div className="mb-8 flex flex-wrap items-center gap-x-5 gap-y-2">
+            <Link
+              href="/knowledge-base"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-gray-400 transition hover:text-orange-400"
+            >
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="m15 19-7-7 7-7" />
+              </svg>
+              Back to Knowledge Base
+            </Link>
+            <span className="hidden text-gray-700 sm:inline">/</span>
+            <Link
+              href={backHref}
+              className="text-sm font-semibold text-gray-500 transition hover:text-orange-400"
+            >
+              {backLabel}
+            </Link>
+          </div>
 
           <h1 className="text-4xl font-bold tracking-tight md:text-6xl">{title}</h1>
 
@@ -58,7 +71,22 @@ export default function CoreSeriesTopicPage({
           <section className="mt-14">
             <h2 className="mb-5 text-xl font-bold">Video Library</h2>
 
-            {selectedVideo === null ? (
+            {videoCount === 0 ? (
+              <div className="rounded-xl border border-dashed border-white/10 bg-white/[0.025] px-6 py-12 text-center">
+                <svg
+                  className="mx-auto h-10 w-10 text-gray-600"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="m9 7 8 5-8 5V7Z" />
+                  <rect x="3" y="4" width="18" height="16" rx="2" strokeWidth={1.5} />
+                </svg>
+                <p className="mt-4 font-semibold text-gray-300">
+                  Videos will be added soon.
+                </p>
+              </div>
+            ) : selectedVideo === null ? (
               <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
                 {Array.from({ length: videoCount }, (_, index) => {
                   const videoId = videoIds[index];

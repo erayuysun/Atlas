@@ -76,7 +76,7 @@ export default function KnowledgeBasePage() {
               alt=""
               width={72}
               height={72}
-              className="knowledge-category-icon h-14 w-14 md:h-[72px] md:w-[72px]"
+              className="knowledge-category-icon h-14 w-auto object-contain md:h-[72px]"
             />
             <span className="knowledge-category-label text-xs font-semibold text-white md:text-sm">
               Explore Categories
@@ -93,7 +93,7 @@ export default function KnowledgeBasePage() {
                 alt=""
                 width={48}
                 height={48}
-                className="knowledge-category-icon h-12 w-12"
+                className="knowledge-category-icon h-12 w-auto object-contain"
               />
             </span>
             <span className="knowledge-category-label">Explore Categories</span>

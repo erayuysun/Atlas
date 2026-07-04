@@ -14,6 +14,8 @@ const sections = [
     title: "Navigators",
     href: "/knowledge-base/core-series/navigators",
     icon: "/Media/Knowledge Base/core series/Navigators-transparent.png",
+    iconWidth: 37,
+    iconHeight: 34,
     paragraphs: [
       "Our flagship series covers all aspects of navigation and route planning, an essential guide for exploring new flying sites.",
       "The sites featured in this series are some of the most popular destinations, where experts explain the area, share their invaluable insights.",
@@ -25,6 +27,8 @@ const sections = [
     title: "Sky Gods",
     href: "/knowledge-base/core-series/sky-gods",
     icon: "/Media/Knowledge Base/core series/sky gods-transparent.png",
+    iconWidth: 37,
+    iconHeight: 37,
     paragraphs: [
       "Meet the legends who have redefined the meaning of chasing airtime in the sport of paragliding.",
       "True pioneers of the art of free flight, these people have dedicated their whole lifetimes to the art of flight and created magic we all have been privileged to witness in our lifetimes.",
@@ -36,6 +40,8 @@ const sections = [
     title: "Living The Dream",
     href: "/knowledge-base/core-series/living-the-dream",
     icon: "/Media/Knowledge Base/core series/living the dream-transparent.png",
+    iconWidth: 39,
+    iconHeight: 37,
     paragraphs: [
       "Ever wondered how to break free from the 9–5 grind and make a living off the art of flight?",
       "Tune in to hear from those who once had the same dream and turned it into reality.",
@@ -51,6 +57,15 @@ export default function CoreSeriesPage() {
       <div className="px-5 pb-20 pt-10 md:px-8 md:pb-28 md:pt-16">
         <div className="mx-auto max-w-[1340px]">
           <header className="mb-10 md:mb-16">
+            <Link
+              href="/knowledge-base"
+              className="mb-8 inline-flex items-center gap-2 text-sm font-semibold text-gray-400 transition hover:text-orange-400"
+            >
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="m15 19-7-7 7-7" />
+              </svg>
+              Back to Knowledge Base
+            </Link>
             <h1 className="text-4xl font-bold tracking-tight md:text-6xl">
               Core Series
             </h1>
@@ -71,9 +86,9 @@ export default function CoreSeriesPage() {
                 <Image
                   src={section.icon}
                   alt=""
-                  width={42}
-                  height={42}
-                  className="h-10 w-10 transition-transform duration-300 group-hover:scale-110"
+                  width={section.iconWidth}
+                  height={section.iconHeight}
+                  className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-110"
                 />
                 <h2 className="mt-4 text-lg font-bold">{section.title}</h2>
                 <div className="mt-5 space-y-5 text-sm font-medium leading-relaxed text-gray-200">
