@@ -86,7 +86,7 @@ export default function PodcastCarousel() {
     return () => window.removeEventListener('resize', check);
   }, []);
 
-  const itemsPerPage = isMobile ? 6 : 5;
+  const itemsPerPage = isMobile ? 4 : 5;
 
   // Preload all images as soon as the component mounts
   useEffect(() => {
@@ -163,19 +163,6 @@ export default function PodcastCarousel() {
         };
 
   const gridRef = useRef<HTMLDivElement>(null);
-  const [minHeight, setMinHeight] = useState<number | undefined>(undefined);
-
-  // Keep min-height in sync with the grid's actual height at any screen size
-  useEffect(() => {
-    const el = gridRef.current;
-    if (!el) return;
-    const observer = new ResizeObserver(() => {
-      const h = el.offsetHeight;
-      if (h > 0) setMinHeight(h);
-    });
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <div className="relative px-14 overflow-hidden">
@@ -192,7 +179,7 @@ export default function PodcastCarousel() {
       <div
         ref={gridRef}
         className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6"
-        style={{ ...slideStyle, minHeight: minHeight ? `${minHeight}px` : undefined }}
+        style={{ ...slideStyle }}
       >
         {visibleGuests.map((guest) => (
           <div key={guest.id} className="text-center group">
