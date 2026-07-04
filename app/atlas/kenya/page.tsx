@@ -8,7 +8,7 @@ export default function KenyaPage() {
     <div className="bg-[#0a0a0a] text-white">
 
       {/* Hero */}
-      <section className="relative w-full overflow-hidden -mt-16 md:-mt-20">
+      <section className="relative -mt-16 w-full overflow-hidden min-[1030px]:-mt-20">
         <img src="/Media/Kenya/hero.webp" alt="Kenya paragliding" className="w-full block max-h-[100svh] object-cover"/>
         <div className="absolute inset-0" style={{background:"linear-gradient(to bottom,rgba(10,10,10,0.35) 0%,transparent 18%,transparent 50%,rgba(10,10,10,0.55) 75%,rgba(10,10,10,0.92) 92%,#0a0a0a 100%)"}}/>
         <div className="absolute top-0 left-0 px-4 md:px-14 pt-20 md:pt-32">

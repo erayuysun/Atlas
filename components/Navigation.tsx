@@ -78,7 +78,7 @@ export default function Navigation() {
         />
         {isOpen && (
           <div
-            className={`${isClosing ? "mobile-menu-backdrop-out" : "mobile-menu-backdrop"} pointer-events-none absolute inset-x-0 top-0 -bottom-16 md:hidden`}
+            className={`${isClosing ? "mobile-menu-backdrop-out" : "mobile-menu-backdrop"} pointer-events-none absolute inset-x-0 top-0 -bottom-16 min-[1030px]:hidden`}
             style={{
               background:
                 "linear-gradient(to bottom, rgba(10,10,10,0.98) 0%, rgba(10,10,10,0.96) 72%, rgba(10,10,10,0.82) 82%, transparent 100%)",
@@ -87,9 +87,9 @@ export default function Navigation() {
         )}
         {/* Nav content sits above background layers */}
         <div className="relative container mx-auto px-4">
-          <div className="relative flex justify-between items-center h-16 md:h-20">
+          <div className="relative flex h-16 items-center justify-between min-[1030px]:h-20">
             {/* Left Navigation */}
-            <div className="hidden md:flex space-x-12 flex-1">
+            <div className="hidden flex-1 space-x-12 min-[1030px]:flex">
               <Link href="/" className="relative text-white text-lg font-semibold tracking-wide group">
                 <span className="transition-colors duration-300 group-hover:text-orange-400">Home</span>
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-400 group-hover:w-full transition-all duration-300 shadow-[0_0_8px_rgba(251,146,60,0.8)]" />
@@ -107,26 +107,26 @@ export default function Navigation() {
                 alt="ATLAS" 
                 width={866}
                 height={288}
-                className="h-auto w-[80vw] max-w-[385px] md:max-w-[481px] object-contain"
+                className="h-auto w-[80vw] max-w-[385px] object-contain min-[1030px]:max-w-[481px]"
                 style={{ aspectRatio: "866 / 288" }}
               />
             </Link>
 
             {/* Right Navigation */}
-            <div className="hidden md:flex space-x-12 flex-1 justify-end">
+            <div className="hidden flex-1 justify-end space-x-12 min-[1030px]:flex">
               <Link href="/knowledge-base" className="relative text-white text-lg font-semibold tracking-wide group">
                 <span className="transition-colors duration-300 group-hover:text-orange-400">Knowledge Base</span>
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-400 group-hover:w-full transition-all duration-300 shadow-[0_0_8px_rgba(251,146,60,0.8)]" />
               </Link>
-              <Link href="/podcast" className="relative text-orange-500 text-lg font-semibold tracking-wide group">
-                <span className="transition-colors duration-300 group-hover:text-orange-300">Podcast</span>
-                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-orange-400 shadow-[0_0_8px_rgba(251,146,60,0.8)]" />
+              <Link href="/podcast" className="relative text-white text-lg font-semibold tracking-wide group">
+                <span className="transition-colors duration-300 group-hover:text-orange-400">Podcast</span>
+                <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-orange-400 shadow-[0_0_8px_rgba(251,146,60,0.8)] transition-all duration-300 group-hover:w-full" />
               </Link>
             </div>
 
             {/* Mobile menu button */}
             <button
-              className="md:hidden text-white"
+              className="text-white min-[1030px]:hidden"
               onClick={toggleMenu}
             >
               <svg
@@ -149,7 +149,7 @@ export default function Navigation() {
 
           {/* Mobile menu */}
           {isOpen && (
-            <div className="md:hidden pb-4 border-t border-gray-800 pt-4">
+            <div className="border-t border-gray-800 pb-4 pt-4 min-[1030px]:hidden">
               <Link href="/" className={`${isClosing ? "mobile-menu-item-out" : "mobile-menu-item"} block py-2 text-white hover:text-orange-500`} style={{ animationDelay: isClosing ? "0ms" : "40ms" }}>
                 Home
               </Link>
@@ -159,7 +159,7 @@ export default function Navigation() {
               <Link href="/knowledge-base" className={`${isClosing ? "mobile-menu-item-out" : "mobile-menu-item"} block py-2 text-white hover:text-orange-500`} style={{ animationDelay: isClosing ? "0ms" : "200ms" }}>
                 Knowledge Base
               </Link>
-              <Link href="/podcast" className={`${isClosing ? "mobile-menu-item-out" : "mobile-menu-item"} block py-2 text-orange-500 hover:text-orange-400`} style={{ animationDelay: isClosing ? "0ms" : "280ms" }}>
+              <Link href="/podcast" className={`${isClosing ? "mobile-menu-item-out" : "mobile-menu-item"} block py-2 text-white hover:text-orange-400`} style={{ animationDelay: isClosing ? "0ms" : "280ms" }}>
                 Podcast
               </Link>
             </div>
@@ -167,7 +167,7 @@ export default function Navigation() {
         </div>
       </nav>
       {/* Spacer so content doesn't hide under fixed navbar */}
-      <div className="h-16 md:h-20" />
+      <div className="h-16 min-[1030px]:h-20" />
     </>
   );
 }
