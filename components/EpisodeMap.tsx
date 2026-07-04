@@ -55,6 +55,9 @@ export default function EpisodeMap() {
   const dragStart = useRef({ x: 0, y: 0 });
   const panStart  = useRef({ x: 0, y: 0 });
   const didDrag   = useRef(false);
+  const containerSize = useRef({ width: 0, height: 0 });
+  const panFrame = useRef<number | null>(null);
+  const pendingPan = useRef<{ x: number; y: number } | null>(null);
 
   useEffect(() => {
     const token = localStorage.getItem("atlas_admin_token");
@@ -74,12 +77,44 @@ export default function EpisodeMap() {
     return () => observer.disconnect();
   }, []);
 
-  const clampPan = useCallback((x: number, y: number, s: number) => {
+  useEffect(() => {
     const el = containerRef.current;
-    if (!el) return { x, y };
-    const maxX = (el.offsetWidth  * (s - 1)) / 2;
-    const maxY = (el.offsetHeight * (s - 1)) / 2;
+    if (!el) return;
+
+    const updateSize = () => {
+      containerSize.current = {
+        width: el.clientWidth,
+        height: el.clientHeight,
+      };
+    };
+
+    updateSize();
+    const observer = new ResizeObserver(updateSize);
+    observer.observe(el);
+
+    return () => {
+      observer.disconnect();
+      if (panFrame.current !== null) cancelAnimationFrame(panFrame.current);
+    };
+  }, []);
+
+  const clampPan = useCallback((x: number, y: number, s: number) => {
+    const { width, height } = containerSize.current;
+    if (!width || !height) return { x, y };
+    const maxX = (width  * (s - 1)) / 2;
+    const maxY = (height * (s - 1)) / 2;
     return { x: Math.min(maxX, Math.max(-maxX, x)), y: Math.min(maxY, Math.max(-maxY, y)) };
+  }, []);
+
+  const schedulePan = useCallback((nextPan: { x: number; y: number }) => {
+    pendingPan.current = nextPan;
+    if (panFrame.current !== null) return;
+
+    panFrame.current = requestAnimationFrame(() => {
+      if (pendingPan.current) setPan(pendingPan.current);
+      pendingPan.current = null;
+      panFrame.current = null;
+    });
   }, []);
 
   const zoomReset = () => { setScale(1); setPan({ x: 0, y: 0 }); };
@@ -105,7 +140,7 @@ export default function EpisodeMap() {
     if (!dragging.current) return;
     const dx = e.clientX - dragStart.current.x, dy = e.clientY - dragStart.current.y;
     if (Math.abs(dx) > 3 || Math.abs(dy) > 3) didDrag.current = true;
-    if (scale > 1) setPan(clampPan(panStart.current.x + dx, panStart.current.y + dy, scale));
+    if (scale > 1) schedulePan(clampPan(panStart.current.x + dx, panStart.current.y + dy, scale));
   };
   const onMouseUp = (e: React.MouseEvent) => {
     const wasDragging = didDrag.current;
@@ -125,7 +160,7 @@ export default function EpisodeMap() {
     if (!dragging.current || e.touches.length !== 1) return;
     const dx = e.touches[0].clientX - dragStart.current.x, dy = e.touches[0].clientY - dragStart.current.y;
     if (Math.abs(dx) > 3 || Math.abs(dy) > 3) didDrag.current = true;
-    if (scale > 1) setPan(clampPan(panStart.current.x + dx, panStart.current.y + dy, scale));
+    if (scale > 1) schedulePan(clampPan(panStart.current.x + dx, panStart.current.y + dy, scale));
   };
   const onTouchEnd = (e: React.TouchEvent) => {
     const wasDragging = didDrag.current;
@@ -215,7 +250,7 @@ export default function EpisodeMap() {
       <div
         ref={containerRef}
         className="relative w-full aspect-[2/1] bg-gray-800 rounded-xl overflow-hidden"
-        style={{ cursor: mapCursor }}
+        style={{ cursor: mapCursor, touchAction: scale > 1 ? "none" : "pan-y" }}
         onMouseDown={onMouseDown}
         onMouseMove={onMouseMove}
         onMouseUp={onMouseUp}
@@ -230,6 +265,8 @@ export default function EpisodeMap() {
             transform: `scale(${scale}) translate(${pan.x / scale}px, ${pan.y / scale}px)`,
             transformOrigin: "center center",
             transition: dragging.current ? "none" : "transform 150ms ease",
+            willChange: "transform",
+            backfaceVisibility: "hidden",
           }}
         >
           <img

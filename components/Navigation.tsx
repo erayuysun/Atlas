@@ -1,11 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const closeTimer = useRef<number | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,8 +15,30 @@ export default function Navigation() {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (closeTimer.current !== null) window.clearTimeout(closeTimer.current);
+    };
   }, []);
+
+  const closeMenu = () => {
+    if (!isOpen || isClosing) return;
+    setIsClosing(true);
+    closeTimer.current = window.setTimeout(() => {
+      setIsOpen(false);
+      setIsClosing(false);
+      closeTimer.current = null;
+    }, 280);
+  };
+
+  const toggleMenu = () => {
+    if (isOpen) {
+      closeMenu();
+    } else {
+      setIsOpen(true);
+      setIsClosing(false);
+    }
+  };
 
   const navStyle: React.CSSProperties = scrolled
     ? {
@@ -52,6 +76,15 @@ export default function Navigation() {
             transition: 'opacity 600ms cubic-bezier(0.4, 0, 0.2, 1)',
           }}
         />
+        {isOpen && (
+          <div
+            className={`${isClosing ? "mobile-menu-backdrop-out" : "mobile-menu-backdrop"} pointer-events-none absolute inset-x-0 top-0 -bottom-16 md:hidden`}
+            style={{
+              background:
+                "linear-gradient(to bottom, rgba(10,10,10,0.98) 0%, rgba(10,10,10,0.96) 72%, rgba(10,10,10,0.82) 82%, transparent 100%)",
+            }}
+          />
+        )}
         {/* Nav content sits above background layers */}
         <div className="relative container mx-auto px-4">
           <div className="relative flex justify-between items-center h-16 md:h-20">
@@ -72,7 +105,10 @@ export default function Navigation() {
               <img 
                 src="/Media/hp/logonobg.webp" 
                 alt="ATLAS" 
-                className="h-32 md:h-40 w-auto"
+                width={866}
+                height={288}
+                className="h-auto w-[80vw] max-w-[385px] md:max-w-[481px] object-contain"
+                style={{ aspectRatio: "866 / 288" }}
               />
             </Link>
 
@@ -91,7 +127,7 @@ export default function Navigation() {
             {/* Mobile menu button */}
             <button
               className="md:hidden text-white"
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={toggleMenu}
             >
               <svg
                 className="w-6 h-6"
@@ -114,16 +150,16 @@ export default function Navigation() {
           {/* Mobile menu */}
           {isOpen && (
             <div className="md:hidden pb-4 border-t border-gray-800 pt-4">
-              <Link href="/" className="block py-2 text-white hover:text-orange-500">
+              <Link href="/" className={`${isClosing ? "mobile-menu-item-out" : "mobile-menu-item"} block py-2 text-white hover:text-orange-500`} style={{ animationDelay: isClosing ? "0ms" : "40ms" }}>
                 Home
               </Link>
-              <Link href="/about" className="block py-2 text-white hover:text-orange-500">
+              <Link href="/about" className={`${isClosing ? "mobile-menu-item-out" : "mobile-menu-item"} block py-2 text-white hover:text-orange-500`} style={{ animationDelay: isClosing ? "0ms" : "120ms" }}>
                 About Us
               </Link>
-              <Link href="/knowledge-base" className="block py-2 text-white hover:text-orange-500">
+              <Link href="/knowledge-base" className={`${isClosing ? "mobile-menu-item-out" : "mobile-menu-item"} block py-2 text-white hover:text-orange-500`} style={{ animationDelay: isClosing ? "0ms" : "200ms" }}>
                 Knowledge Base
               </Link>
-              <Link href="/podcast" className="block py-2 text-orange-500 hover:text-orange-400">
+              <Link href="/podcast" className={`${isClosing ? "mobile-menu-item-out" : "mobile-menu-item"} block py-2 text-orange-500 hover:text-orange-400`} style={{ animationDelay: isClosing ? "0ms" : "280ms" }}>
                 Podcast
               </Link>
             </div>

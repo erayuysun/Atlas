@@ -66,7 +66,7 @@ export default function KenyaDetails() {
     <div>
 
       {/* Tab bar + Enquire Now */}
-      <div className="flex items-center bg-[#222] rounded-2xl overflow-hidden">
+      <div className="relative z-20 flex items-center bg-[#222] rounded-2xl overflow-hidden opacity-100">
         <div className="flex overflow-x-auto flex-1">
           {TABS.map(t => (
             <button
@@ -137,9 +137,24 @@ export default function KenyaDetails() {
       </div>
 
       {/* Season Packages */}
-      <div className="mt-10 pt-[10vw] text-center">
-        <h2 className="text-orange-500 font-bold text-2xl lg:text-4xl mb-2">2026 Season Packages</h2>
-        <p className="text-gray-400 text-base lg:text-xl">Please see the packages we offer for the 2026 season below.</p>
+      <div className="relative isolate mt-10 pt-[10vw] text-center">
+        <img
+          src="/Media/Kenya/BackGorun%20figures/pngtree-majestic-african-acacia-tree-png-image_19976616%20(1).webp"
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute left-0 top-0 z-0 w-[90%] max-w-[840px] -translate-x-1/2 saturate-50 brightness-110 contrast-90 opacity-25"
+          style={{
+            clipPath: "inset(0 0 25% 50%)",
+            WebkitMaskImage:
+              "linear-gradient(to right, transparent 50%, black 58%, black 90%, transparent 100%), linear-gradient(to bottom, black 0%, black 60%, transparent 75%)",
+            WebkitMaskComposite: "source-in",
+            maskImage:
+              "linear-gradient(to right, transparent 50%, black 58%, black 90%, transparent 100%), linear-gradient(to bottom, black 0%, black 60%, transparent 75%)",
+            maskComposite: "intersect",
+          }}
+        />
+        <h2 className="relative z-10 text-orange-500 font-bold text-2xl lg:text-4xl mb-2">2026 Season Packages</h2>
+        <p className="relative z-10 text-gray-400 text-base lg:text-xl">Please see the packages we offer for the 2026 season below.</p>
       </div>
 
       <div  className="mt-[10vw] flex flex-col gap-10 px-2">
@@ -224,10 +239,10 @@ export default function KenyaDetails() {
       </div>
 
       {/* Key Takeaways standalone accordion */}
-      <div className="mt-6 border-t border-white/10">
+      <div className="relative isolate mt-6 border-t border-white/10">
         <button
           onClick={() => setTakeawaysOpen(o => !o)}
-          className="w-full flex items-center justify-between py-5 px-4 text-left outline-none rounded-xl transition-all duration-200 hover:bg-[#1a1a1a] hover:shadow-[0_0_0_1px_rgba(255,255,255,0.5),_0_0_30px_rgba(255,255,255,0.25),_0_0_60px_rgba(255,255,255,0.12)]"
+          className="relative z-10 w-full flex items-center justify-between py-5 px-4 text-left outline-none rounded-xl transition-all duration-200 hover:bg-[#1a1a1a] hover:shadow-[0_0_0_1px_rgba(255,255,255,0.5),_0_0_30px_rgba(255,255,255,0.25),_0_0_60px_rgba(255,255,255,0.12)]"
         >
           <span className="text-white text-base lg:text-xl font-semibold">Key Takeaways: Before You Fly</span>
           <svg
@@ -238,7 +253,7 @@ export default function KenyaDetails() {
           </svg>
         </button>
         {takeawaysOpen && (
-          <div className="pb-5 flex flex-col gap-4 pl-6">
+          <div className="relative z-10 pb-5 flex flex-col gap-4 pl-6">
             {KEY_TAKEAWAYS.split("\n").map((line, i) => (
               <p key={i} className="text-gray-200 text-base lg:text-lg">{line}</p>
             ))}

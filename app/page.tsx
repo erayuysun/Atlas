@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div className="bg-[#0a0a0a] text-white">
       {/* Hero Section - starts from top, behind fixed navbar */}
-      <section className="relative h-[33vh] md:h-[80vh] w-full overflow-hidden -mt-16 md:-mt-20">
+      <section className="relative h-[48svh] md:h-[80vh] w-full overflow-hidden -mt-16 md:-mt-20">
         <div className="w-full h-full bg-cover bg-center" style={{backgroundImage: "url('/Media/hp/homapage%20image.webp')"}} />
         {/* Gradient overlay: transparent in middle, dark at bottom */}
         <div className="absolute inset-0" style={{
@@ -19,8 +19,9 @@ export default function Home() {
       <section className="container mx-auto px-4 pt-0 pb-16 md:pb-24">
         {/* Kenya */}
         <div className="grid md:grid-cols-2 gap-8 mb-12 items-center">
-          <div className="relative h-64 md:h-80 rounded-lg overflow-hidden">
+          <div className="relative h-48 max-[450px]:h-44 md:h-80 rounded-lg overflow-hidden">
             <div className="w-full h-full bg-cover bg-center" style={{backgroundImage: "url('/Media/hp/hp_row1.webp')"}} />
+            <div className="pointer-events-none absolute inset-0" style={{background:"radial-gradient(ellipse at center, transparent 35%, rgba(10,10,10,0.84) 100%)"}}/>
           </div>
           <div>
             <p className="text-orange-500 text-sm font-medium mb-2">Explore East Africa From Above</p>
@@ -43,8 +44,9 @@ export default function Home() {
 
 
         <div className="grid md:grid-cols-2 gap-8 mb-12 items-center">
-          <div className="md:order-2 relative h-64 md:h-80 rounded-lg overflow-hidden">
+          <div className="md:order-2 relative h-48 max-[450px]:h-44 md:h-80 rounded-lg overflow-hidden">
             <div className="w-full h-full bg-cover bg-center" style={{backgroundImage: "url('/Media/hp/row2.webp')"}} />
+            <div className="pointer-events-none absolute inset-0" style={{background:"radial-gradient(ellipse at center, transparent 35%, rgba(10,10,10,0.84) 100%)"}}/>
           </div>
           <div className="md:order-1">
             <p className="text-orange-500 text-sm font-medium mb-2">Sky Is Not The Limit</p>
@@ -68,8 +70,9 @@ export default function Home() {
         {/* Peru */}
         {/* India/Himalayas */}
         <div className="grid md:grid-cols-2 gap-8 mb-12 items-center">
-          <div className="relative h-64 md:h-80 rounded-lg overflow-hidden">
+          <div className="relative h-48 max-[450px]:h-44 md:h-80 rounded-lg overflow-hidden">
             <div className="w-full h-full bg-cover bg-center" style={{backgroundImage: "url('/Media/hp/row3.webp')"}} />
+            <div className="pointer-events-none absolute inset-0" style={{background:"radial-gradient(ellipse at center, transparent 35%, rgba(10,10,10,0.84) 100%)"}}/>
           </div>
           <div>
             <p className="text-orange-500 text-sm font-medium mb-2">Soar the Land of the Incas</p>
@@ -93,8 +96,9 @@ export default function Home() {
 
         {/* Beyond Roads */}
         <div className="grid md:grid-cols-2 gap-8 items-center">
-          <div className="md:order-2 relative h-64 md:h-80 rounded-lg overflow-hidden">
+          <div className="md:order-2 relative h-48 max-[450px]:h-44 md:h-80 rounded-lg overflow-hidden">
             <div className="w-full h-full bg-cover bg-center" style={{backgroundImage: "url('/Media/hp/row4.webp')"}} />
+            <div className="pointer-events-none absolute inset-0" style={{background:"radial-gradient(ellipse at center, transparent 35%, rgba(10,10,10,0.84) 100%)"}}/>
           </div>
           <div className="md:order-1">
             <p className="text-orange-500 text-sm font-medium mb-2">A Flight to the Ends of the Earth</p>

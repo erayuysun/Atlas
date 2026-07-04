@@ -25,6 +25,7 @@ export default function KnowBeforeYouGo() {
       {/* Title bar */}
       <button
         onClick={() => setOpen(o => !o)}
+        className="relative z-20"
         style={{
           width: "100%",
           display: "flex",
@@ -33,6 +34,7 @@ export default function KnowBeforeYouGo() {
           gap: "10px",
           padding: "14px 24px",
           backgroundColor: "#1e1e1e",
+          opacity: 1,
           border: "none",
           borderRadius: "14px",
           cursor: "pointer",
