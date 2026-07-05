@@ -5,10 +5,10 @@ import KenyaDetails from "@/components/KenyaDetails";
 
 export default function KenyaPage() {
   return (
-    <div className="overflow-x-hidden bg-[#0a0a0a] text-white">
+    <div className="overflow-x-hidden bg-[#0a0a0a] text-white -mt-16 min-[1030px]:-mt-20">
 
       {/* Hero */}
-      <section className="relative -mt-16 h-[calc(66.67vw+4rem)] max-h-[100svh] w-full overflow-hidden md:h-auto min-[1030px]:-mt-20">
+      <section className="relative h-[calc(66.67vw+4rem)] max-h-[100svh] w-full overflow-hidden md:h-auto">
         <img src="/Media/Kenya/hero.webp" alt="Kenya paragliding" className="absolute inset-0 h-full w-full object-cover object-top md:relative md:h-auto"/>
         <div className="absolute inset-0" style={{background:"linear-gradient(to bottom,rgba(10,10,10,0.35) 0%,transparent 18%,transparent 50%,rgba(10,10,10,0.55) 75%,rgba(10,10,10,0.92) 92%,#0a0a0a 100%)"}}/>
         <div className="absolute top-0 left-0 px-4 md:px-14 pt-20 md:pt-32">

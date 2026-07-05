@@ -62,7 +62,7 @@ export default function Navigation() {
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: "linear-gradient(to bottom, rgba(18,18,18,0.95) 0%, rgba(18,18,18,0.75) 55%, rgba(18,18,18,0) 100%)",
+            background: "linear-gradient(to bottom, rgba(18,18,18,0.28) 0%, rgba(18,18,18,0.12) 50%, rgba(18,18,18,0) 100%)",
             opacity: scrolled ? 0 : 1,
             transition: 'opacity 600ms cubic-bezier(0.4, 0, 0.2, 1)',
           }}
@@ -86,7 +86,7 @@ export default function Navigation() {
           />
         )}
         {/* Nav content sits above background layers */}
-        <div className="relative container mx-auto px-4">
+        <div className="relative container mx-auto px-4" style={{ textShadow: scrolled ? 'none' : '0 1px 8px rgba(0,0,0,0.7)' }}>
           <div className="relative flex h-16 items-center justify-between min-[1030px]:h-20">
             {/* Left Navigation */}
             <div className="hidden flex-1 space-x-12 min-[1030px]:flex">
