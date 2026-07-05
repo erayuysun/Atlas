@@ -9,7 +9,8 @@ type CoreSeriesTopicPageProps = {
   description: string;
   highlights: string[];
   videoCount: number;
-  videoIds?: string[];
+  videoIds?: Array<string | null>;
+  videoTitles?: string[];
   backHref?: string;
   backLabel?: string;
 };
@@ -20,6 +21,7 @@ export default function CoreSeriesTopicPage({
   highlights,
   videoCount,
   videoIds = [],
+  videoTitles = [],
   backHref = "/knowledge-base/core-series",
   backLabel = "Core Series",
 }: CoreSeriesTopicPageProps) {
@@ -118,12 +120,12 @@ export default function CoreSeriesTopicPage({
                           </>
                         ) : (
                           <span className="flex h-full items-center justify-center text-sm font-semibold text-gray-500">
-                            Video link coming soon
+                            To be added
                           </span>
                         )}
                       </span>
                       <span className="mt-3 block text-sm font-bold text-gray-200">
-                        {title} · Video {index + 1}
+                        {videoTitles[index] || `${title} · Video ${index + 1}`}
                       </span>
                     </button>
                   );
@@ -188,20 +190,20 @@ export default function CoreSeriesTopicPage({
                                 />
                               ) : (
                                 <span className="flex h-full items-center justify-center text-[10px] text-gray-500">
-                                  Coming soon
+                                  To be added
                                 </span>
                               )}
                             </span>
                             <span>
                               <span className="block text-sm font-bold text-gray-100">
-                                {title} · Video {index + 1}
+                                {videoTitles[index] || `${title} · Video ${index + 1}`}
                               </span>
                               <span className="mt-1 block text-xs text-gray-500">
                                 {isActive
                                   ? "Now playing"
                                   : videoId
                                     ? "Play next"
-                                    : "Link coming soon"}
+                                    : "To be added"}
                               </span>
                             </span>
                           </button>

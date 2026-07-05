@@ -17,7 +17,12 @@ export default function StorytellersPage() {
         "Cultural perspectives",
         "Real-world experiences",
       ]}
-      videoCount={3}
+      videoCount={2}
+      videoIds={["ebwdsVgopnU", "T1pR130Umkk"]}
+      videoTitles={[
+        "Eddie Colfox: Storytime with John Silvester",
+        "Storytellers: Marko Milutinovic / Mid-Air Collision",
+      ]}
       backHref="/knowledge-base/industry"
       backLabel="Industry & Community"
     />

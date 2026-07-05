@@ -17,8 +17,16 @@ export default function NavigatorsPage() {
         "Airspace rules and regulations",
         "Proven best practices (and common mistakes to avoid)",
       ]}
-      videoCount={3}
-      videoIds={["_apo1PNabZI", "TO6gW69d7YE", "kOgDYSvfUuo"]}
+      videoCount={6}
+      videoIds={["kOgDYSvfUuo", "xXSGK8oB4Oc", "TO6gW69d7YE", "0VPg7TZ9hK0", "UVLF8l0qFlA", null]}
+      videoTitles={[
+        "Navigating Colombia: Pal Takats",
+        "Navigating Australia: Godfrey Wenness",
+        "Navigating India: Eddie Colfox",
+        "Navigating Panchgani / Pre PWC India: Vistasp Kharas",
+        "Pre PWC Kenya: Nikolay Yotov",
+        "Navigating India: Jigish Gohil / Bonus Episode",
+      ]}
     />
   );
 }

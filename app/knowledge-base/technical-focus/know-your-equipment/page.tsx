@@ -17,7 +17,16 @@ export default function KnowYourEquipmentPage() {
         "Reserve parachute handling",
         "Maintenance and care practices",
       ]}
-      videoCount={3}
+      videoCount={6}
+      videoIds={["EttlenmzWHM", "kSoFk23TuX0", "wvJWd8lVZzc", "fKWV5YR8MRE", "B9mx2zGLk0I", null]}
+      videoTitles={[
+        "Urs Haari: The Truth About Reserve Parachutes",
+        "Watch this Before you Buy a Paragliding Harness",
+        "A Reserve Parachute Trick Every Pilot Should Know",
+        "Helmet Safety: Christian Ciech / ICARO 2000",
+        "A Note of Thanks",
+        "Carabiner Fatigue: Finsterwalder & Charly",
+      ]}
       backHref="/knowledge-base/technical-focus"
       backLabel="Technical Focus & Flight Safety"
     />

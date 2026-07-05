@@ -17,8 +17,17 @@ export default function WorldCupsRacingPage() {
         "Event structures and calendars",
         "Insights from pilots and organizers",
       ]}
-      videoCount={3}
-      videoIds={["pFxe7oZTH2E", "ebwdsVgopnU"]}
+      videoCount={7}
+      videoIds={["Kdd1R8x36vU", "CYVrlWuls6o", "i9z4MyL6KgQ", "nlgbMKLNNk4", "cnizMhvNQrM", "rFC56EjtXCY", "ZjSojM_Ao0U"]}
+      videoTitles={[
+        "From Tents to Trophies: Luke De Weert",
+        "Master the Art of Scoring: The GAP Formula & Strategy | Joerg Ewald",
+        "The Inside Story of Sports Racing Series (SRS) | Brett Janaway",
+        "Bruce Goldsmith Explains the MRT Scoring System",
+        "Shane Tighe's Road to X-Alps",
+        "The Resilience Equation: Erlend Ukvitne's Path to X-Alps",
+        "PWC Lifestyle: Klaudia Bulgakow",
+      ]}
       backHref="/knowledge-base/competitions"
       backLabel="Competitions & Performance"
     />

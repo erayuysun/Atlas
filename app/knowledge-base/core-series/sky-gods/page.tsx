@@ -17,8 +17,9 @@ export default function SkyGodsPage() {
         "Personal rituals and mindset",
         "Lessons from elite performance",
       ]}
-      videoCount={2}
-      videoIds={["Q2oTFoQcrGw", "QmprO-5qkR8"]}
+      videoCount={3}
+      videoIds={["QmprO-5qkR8", "Q2oTFoQcrGw", null]}
+      videoTitles={["Sky Gods: Flying to Win: Honorin Hamard", "Sky Gods: Flying 8000ers: Antoine Girard", "Maxime Pinot: The Journey Within"]}
     />
   );
 }

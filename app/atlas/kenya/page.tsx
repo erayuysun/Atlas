@@ -5,11 +5,11 @@ import KenyaDetails from "@/components/KenyaDetails";
 
 export default function KenyaPage() {
   return (
-    <div className="bg-[#0a0a0a] text-white">
+    <div className="overflow-x-hidden bg-[#0a0a0a] text-white">
 
       {/* Hero */}
-      <section className="relative -mt-16 w-full overflow-hidden min-[1030px]:-mt-20">
-        <img src="/Media/Kenya/hero.webp" alt="Kenya paragliding" className="w-full block max-h-[100svh] object-cover"/>
+      <section className="relative -mt-16 h-[calc(66.67vw+4rem)] max-h-[100svh] w-full overflow-hidden md:h-auto min-[1030px]:-mt-20">
+        <img src="/Media/Kenya/hero.webp" alt="Kenya paragliding" className="absolute inset-0 h-full w-full object-cover object-top md:relative md:h-auto"/>
         <div className="absolute inset-0" style={{background:"linear-gradient(to bottom,rgba(10,10,10,0.35) 0%,transparent 18%,transparent 50%,rgba(10,10,10,0.55) 75%,rgba(10,10,10,0.92) 92%,#0a0a0a 100%)"}}/>
         <div className="absolute top-0 left-0 px-4 md:px-14 pt-20 md:pt-32">
           <h1 className="text-4xl md:text-9xl tracking-widest leading-none mb-2" style={{fontFamily:"var(--font-barlow)",fontWeight:300,textShadow:"0 2px 20px rgba(0,0,0,0.5)"}}>KENYA</h1>
@@ -140,16 +140,16 @@ export default function KenyaPage() {
       </div>
 
       {/* Trip details + gallery */}
-      <div className="container mx-auto px-4 pb-16 md:pb-20">
+      <div className="container mx-auto px-4 md:pb-20">
         <KenyaDetails />
       </div>
 
       {/* CTA */}
-      <section className="container mx-auto px-4 py-16 md:py-24">
-        <div className="rounded-2xl border border-orange-500/20 bg-[#111] px-8 py-10 md:py-14 text-center">
-          <p className="text-orange-500 text-sm font-medium tracking-wider uppercase mb-3">Ready to Fly?</p>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Book Your Kenya Expedition</h2>
-          <p className="text-gray-400 max-w-xl mx-auto mb-8">Limited spots per season. Get in touch to reserve your place on the next departure.</p>
+      <section className="container mx-auto px-4 py-6 md:py-24">
+        <div className="rounded-2xl border border-orange-500/20 bg-[#111] px-5 py-7 text-center md:px-8 md:py-14">
+          <p className="mb-3 text-xs font-medium uppercase tracking-wider text-orange-500 md:text-sm">Ready to Fly?</p>
+          <h2 className="mb-4 text-2xl font-bold md:text-4xl">Book Your Kenya Expedition</h2>
+          <p className="mx-auto mb-6 max-w-xl text-sm text-gray-400 md:mb-8 md:text-base">Limited spots per season. Get in touch to reserve your place on the next departure.</p>
           <a href="https://w.app/paragliding" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-3 bg-orange-500 hover:bg-orange-600 text-white pl-2 pr-6 py-3 rounded-full transition-all duration-300 font-semibold">
             <span className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7"/></svg>

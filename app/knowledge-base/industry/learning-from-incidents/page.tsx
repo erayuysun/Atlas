@@ -17,7 +17,15 @@ export default function LearningFromIncidentsPage() {
         "Contributing factors",
         "Preventive lessons and insights",
       ]}
-      videoCount={3}
+      videoCount={5}
+      videoIds={["YyGdTDXC1Lc", "BceEzHgylwo", "VmaPERBK-lo", "jdiYdzJ9U5w", "jSfQYxxbaWk"]}
+      videoTitles={[
+        "Bill Belcourt: The Current Safety Paradox",
+        "A Rescue Helicopter Changed Everything | Nick Neynes",
+        "The Truth About Paragliding Governance",
+        "Insights From The Gaggle",
+        "#CIVLRESIGN with Julien Garcia",
+      ]}
       backHref="/knowledge-base/industry"
       backLabel="Industry & Community"
     />

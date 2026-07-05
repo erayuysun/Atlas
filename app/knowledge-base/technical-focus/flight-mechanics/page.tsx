@@ -17,7 +17,16 @@ export default function FlightMechanicsPage() {
         "Wing behavior in different phases",
         "Control inputs and their effects",
       ]}
-      videoCount={3}
+      videoCount={6}
+      videoIds={["iurDFHlgJjI", "wTfS5kv1t9M", "CBxyezZ-UOw", "xNMHk_8qbzo", "78PaTvxRWJ0", null]}
+      videoTitles={[
+        "Tom Lolies: The Science of Wing Design",
+        "Helmut Schrempf: Modernizing SIV Courses",
+        "Alain Zoller: The Science of EN Certifications",
+        "Luc Armant: Debunking Myths and Upgrading Enzo 3",
+        "Aljaž Valič: 777 — Paragliding's Slovenian Mavericks",
+        "The Science Behind Parakites with Bryan Van Ostheim",
+      ]}
       backHref="/knowledge-base/technical-focus"
       backLabel="Technical Focus & Flight Safety"
     />

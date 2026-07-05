@@ -18,7 +18,9 @@ export default function WeatherPatternsForecastingPage() {
         "Wind patterns and thermals",
         "Forecast interpretation",
       ]}
-      videoCount={3}
+      videoCount={1}
+      videoIds={["DIHf30B2NoY"]}
+      videoTitles={["Meteorology 101: A Beginner's Guide to Weather Apps and Forecasting"]}
       backHref="/knowledge-base/meteorology"
       backLabel="Meteorology & Weather Analysis"
     />

@@ -17,8 +17,16 @@ export default function LivingTheDreamPage() {
         "Lifestyle and work balance",
         "Long-term sustainability insights",
       ]}
-      videoCount={2}
-      videoIds={["bDJ1zRG90cs"]}
+      videoCount={6}
+      videoIds={["qZRa_Ozz0Hg", "ylj8CZgqLyM", "MLNGvJHrWQY", "yNNqjTpQkRQ", "bDJ1zRG90cs", null]}
+      videoTitles={[
+        "Sandrine Roy: Vol Biv & Freedom Unfiltered",
+        "From Cuba to Socotra: Unique Paragliding Tours",
+        "Touch The Sky With Glory",
+        "How to Fly With Your Dog | Explained by Shams",
+        "Living The Dream: Benjamin Jordan",
+        "Anatomy of a Dream with Damien Lacaze",
+      ]}
     />
   );
 }

@@ -51,7 +51,8 @@ const STATS = [
 
 export default function KenyaDetails() {
   const [tab, setTab] = useState<Tab>("Overview");
-  const [slide, setSlide] = useState(0);
+  const [virtualSlide, setVirtualSlide] = useState(0);
+  const slide = ((virtualSlide % GALLERY.length) + GALLERY.length) % GALLERY.length;
   const [infoTab, setInfoTab] = useState<InfoTab>("FAQ");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [openReq, setOpenReq] = useState<number | null>(null);
@@ -59,20 +60,20 @@ export default function KenyaDetails() {
   const [itineraryTab, setItineraryTab] = useState<"Atlas Itinerary" | "What's Included">("Atlas Itinerary");
   const [uniqueOpen, setUniqueOpen] = useState(false);
 
-  const prev = () => setSlide(i => (i - 1 + GALLERY.length) % GALLERY.length);
-  const next = () => setSlide(i => (i + 1) % GALLERY.length);
+  const prev = () => setVirtualSlide(i => i - 1);
+  const next = () => setVirtualSlide(i => i + 1);
 
   return (
     <div>
 
       {/* Tab bar + Enquire Now */}
-      <div className="relative z-20 flex items-center bg-[#222] rounded-2xl overflow-hidden opacity-100">
+      <div className="relative z-20 flex h-12 items-center overflow-hidden rounded-[14px] bg-[#222] opacity-100">
         <div className="flex overflow-x-auto flex-1">
           {TABS.map(t => (
             <button
               key={t}
               onClick={() => setTab(t)}
-              className={`flex-shrink-0 px-6 py-3.5 lg:px-8 lg:py-5 text-sm md:text-base lg:text-xl font-semibold tracking-wide whitespace-nowrap outline-none focus:outline-none ${
+              className={`h-full flex-shrink-0 px-6 lg:px-8 text-sm md:text-base lg:text-xl font-semibold tracking-wide whitespace-nowrap outline-none focus:outline-none ${
                 tab === t
                   ? "text-orange-500"
                   : "text-gray-400 hover:text-white transition-colors"
@@ -110,29 +111,63 @@ export default function KenyaDetails() {
         ))}
       </div>
 
-      {/* Gallery — always visible below tab content */}
-      <div className="relative mt-4">
-        <div className="relative aspect-[16/9] overflow-hidden rounded-xl">
-          <img
-            key={slide}
-            src={GALLERY[slide]}
-            alt={`Gallery ${slide + 1}`}
-            className="w-full h-full object-cover"
-            style={{ animation: "fadeIn 0.4s ease" }}
-          />
-          <div className="absolute inset-0 pointer-events-none" style={{background:"linear-gradient(to right,rgba(10,10,10,0.4) 0%,transparent 15%,transparent 85%,rgba(10,10,10,0.4) 100%)"}}/>
-          <button onClick={prev} className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 hover:bg-black/90 border border-white/20 flex items-center justify-center transition" aria-label="Previous">
-            <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7"/></svg>
-          </button>
-          <button onClick={next} className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 hover:bg-black/90 border border-white/20 flex items-center justify-center transition" aria-label="Next">
-            <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/></svg>
-          </button>
-          <div className="absolute bottom-3 right-4 bg-black/60 text-white text-xs px-2 py-1 rounded-full">{slide + 1} / {GALLERY.length}</div>
+      {/* Gallery — landscape fan/strip carousel with infinite loop */}
+      <div className="relative mt-6 select-none w-screen ml-[calc(50%-50vw)]">
+        {/* Fan strip */}
+        <div className="relative h-48 md:h-[42vw] max-h-[600px] flex items-center justify-center" style={{ perspective: "1400px" }}>
+          {GALLERY.map((src, i) => {
+            // Compute shortest circular offset so loop feels seamless
+            let offset = i - slide;
+            const half = GALLERY.length / 2;
+            if (offset > half)  offset -= GALLERY.length;
+            if (offset < -half) offset += GALLERY.length;
+            const absOffset = Math.abs(offset);
+            const isCenter = offset === 0;
+            const rotateY = offset * 26;
+            const translateX = offset * 52;
+            const translateZ = isCenter ? 0 : -100 - absOffset * 40;
+            const scale = isCenter ? 1 : 1 - absOffset * 0.18;
+            const opacity = absOffset > 2 ? 0 : 1 - absOffset * 0.25;
+            const zIndex = GALLERY.length - absOffset;
+            return (
+              <button
+                key={src}
+                onClick={() => setVirtualSlide(v => v + offset)}
+                className="absolute rounded-xl overflow-hidden focus:outline-none"
+                style={{
+                  width: "clamp(220px, 52vw, 760px)",
+                  aspectRatio: "16/9",
+                  transform: `translateX(${translateX}%) rotateY(${rotateY}deg) translateZ(${translateZ}px) scale(${scale})`,
+                  opacity,
+                  zIndex,
+                  transition: "all 0.45s cubic-bezier(0.25,0.46,0.45,0.94)",
+                  boxShadow: isCenter ? "0 20px 60px rgba(0,0,0,0.7)" : "0 8px 30px rgba(0,0,0,0.5)",
+                }}
+              >
+                <img src={src} alt={`Gallery ${i + 1}`} className="w-full h-full object-cover" draggable={false}/>
+                {!isCenter && <div className="absolute inset-0 bg-black/40"/>}
+              </button>
+            );
+          })}
         </div>
-        <div className="flex justify-center gap-1.5 py-3">
-          {GALLERY.map((_, i) => (
-            <button key={i} onClick={() => setSlide(i)} className={`rounded-full transition-all ${i === slide ? "bg-orange-500 w-4 h-1.5" : "bg-gray-600 w-1.5 h-1.5"}`}/>
-          ))}
+
+        {/* Dot indicators + arrows */}
+        <div className="flex items-center justify-center gap-4 pt-5">
+          <button onClick={prev} className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center transition" aria-label="Previous">
+            <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7"/></svg>
+          </button>
+          <div className="flex gap-1.5">
+            {GALLERY.map((_, i) => {
+              // shortest-path jump so loop direction is always coherent
+              let d = i - slide;
+              if (d > GALLERY.length / 2)  d -= GALLERY.length;
+              if (d < -GALLERY.length / 2) d += GALLERY.length;
+              return <button key={i} onClick={() => setVirtualSlide(v => v + d)} className={`rounded-full transition-all ${i === slide ? "bg-orange-500 w-4 h-1.5" : "bg-gray-600 w-1.5 h-1.5"}`}/>;
+            })}
+          </div>
+          <button onClick={next} className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center transition" aria-label="Next">
+            <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/></svg>
+          </button>
         </div>
       </div>
 
@@ -164,8 +199,8 @@ export default function KenyaDetails() {
           { name: "Adventure Tour 3", dates: "18th Feb to 1st Mar 2027" },
         ].map((pkg) => (
           <div key={pkg.name} className="flex items-center justify-between px-4 py-5 hover:bg-gray-800 transition rounded-lg cursor-pointer"> 
-            <span className="text-white font-bold text-xl lg:text-3xl">{pkg.name}</span>
-            <span className="text-white text-xl lg:text-3xl">{pkg.dates}</span>
+            <span className="text-base font-bold text-white lg:text-3xl">{pkg.name}</span>
+            <span className="text-base text-white lg:text-3xl">{pkg.dates}</span>
           </div>
         ))}
       </div>

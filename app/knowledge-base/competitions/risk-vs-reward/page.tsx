@@ -17,13 +17,24 @@ export default function RiskVsRewardPage() {
         "Personal limit setting",
         "Practical decision-making frameworks",
       ]}
-      videoCount={5}
+      videoCount={7}
       videoIds={[
+        "DmyYSA6NeMw",
         "md9ls8OtBiA",
         "J8visA4lxys",
         "njoPDwe457w",
-        "MFYb9KmT15s",
-        "DmyYSA6NeMw",
+        "VqkYy6YhXcY",
+        "pFxe7oZTH2E",
+        null,
+      ]}
+      videoTitles={[
+        "Risk Vs Reward 5: Gabriel Orsini",
+        "Risk Vs Reward 1: Philipp Zellner",
+        "Risk Vs Reward 2: Subir Sidhu",
+        "Risk Vs Reward 3: Manfred Ruhmer",
+        "Consequence Over Probability: Will Gadd",
+        "Kinga Masztalerz: Building a Healthy Relationship with the Skies",
+        "Risk Vs Reward 4: Raúl Rodríguez",
       ]}
       backHref="/knowledge-base/competitions"
       backLabel="Competitions & Performance"

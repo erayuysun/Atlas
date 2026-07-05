@@ -17,7 +17,14 @@ export default function BrandStoriesPage() {
         "Product development processes",
         "Certification and safety standards",
       ]}
-      videoCount={3}
+      videoCount={4}
+      videoIds={["FvIZpqydhyo", "9GfZcM3P3jY", "l1gmplS02FI", null]}
+      videoTitles={[
+        "Pal Takats on Challenges, Change & The Future of Paragliding",
+        "Brand Stories: Neo: Eric Roussel",
+        "PWCA: Goran Dimiskovski",
+        "Legacy and Lifetimes of Gin Seok Song",
+      ]}
       backHref="/knowledge-base/industry"
       backLabel="Industry & Community"
     />

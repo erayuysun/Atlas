@@ -62,7 +62,7 @@ export default function Navigation() {
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: 'linear-gradient(to bottom, rgba(18,18,18,0.95) 0%, rgba(18,18,18,0.75) 55%, rgba(18,18,18,0) 100%)',
+            background: "linear-gradient(to bottom, rgba(18,18,18,0.95) 0%, rgba(18,18,18,0.75) 55%, rgba(18,18,18,0) 100%)",
             opacity: scrolled ? 0 : 1,
             transition: 'opacity 600ms cubic-bezier(0.4, 0, 0.2, 1)',
           }}
@@ -107,8 +107,7 @@ export default function Navigation() {
                 alt="ATLAS" 
                 width={866}
                 height={288}
-                className="h-auto w-[80vw] max-w-[385px] object-contain min-[1030px]:max-w-[481px]"
-                style={{ aspectRatio: "866 / 288" }}
+                className="h-auto w-[220px] object-contain sm:w-[280px] min-[1030px]:w-[481px]"
               />
             </Link>
 
