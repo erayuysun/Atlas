@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div className="bg-[#0a0a0a] text-white">
       {/* Hero Section - starts from top, behind fixed navbar */}
-      <section className="relative -mt-16 h-[48svh] w-full overflow-hidden md:h-[80vh] min-[1030px]:-mt-20">
+      <section className="full-bleed relative -mt-16 h-[48svh] w-full overflow-hidden md:h-[80vh] min-[1030px]:-mt-20">
         <div className="w-full h-full bg-cover bg-center" style={{backgroundImage: "url('/Media/hp/homapage%20image.webp')"}} />
         {/* Gradient overlay: transparent in middle, dark at bottom */}
         <div className="absolute inset-0" style={{
@@ -25,7 +25,7 @@ export default function Home() {
           </div>
           <div>
             <p className="text-orange-500 text-sm font-medium mb-2">Explore East Africa From Above</p>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-xl font-bold mb-4 md:text-4xl">
               A Journey Over The Cradle Of Humankind
             </h2>
             <p className="text-gray-300 mb-6">
@@ -50,7 +50,7 @@ export default function Home() {
           </div>
           <div className="md:order-1">
             <p className="text-orange-500 text-sm font-medium mb-2">Sky Is Not The Limit</p>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-xl font-bold mb-4 md:text-4xl">
               The Majestic Himalayas: A Paraglider's Ultimate Frontier
             </h2>
             <p className="text-gray-300 mb-6">
@@ -76,7 +76,7 @@ export default function Home() {
           </div>
           <div>
             <p className="text-orange-500 text-sm font-medium mb-2">Soar the Land of the Incas</p>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-xl font-bold mb-4 md:text-4xl">
               A Multi-Day Soaring Adventure Through Iconic Flying Corridors
             </h2>
             <p className="text-gray-300 mb-6">
@@ -102,7 +102,7 @@ export default function Home() {
           </div>
           <div className="md:order-1">
             <p className="text-orange-500 text-sm font-medium mb-2">A Flight to the Ends of the Earth</p>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-xl font-bold mb-4 md:text-4xl">
               Beyond Roads, Beyond Maps, Beyond The Unknown
             </h2>
             <p className="text-gray-300 mb-6">

@@ -55,7 +55,7 @@ const topics = [
 export default function KnowledgeBasePage() {
   return (
     <div className="overflow-hidden bg-[#0a0a0a] text-white">
-      <section className="relative -mt-16 aspect-[16/10] min-h-[520px] w-full overflow-hidden md:aspect-video md:min-h-0 min-[1030px]:-mt-20">
+      <section className="full-bleed relative -mt-16 h-[48svh] w-full overflow-hidden md:h-[80vh] min-[1030px]:-mt-20">
         <Image
           src="/Media/Knowledge Base/HERO.png"
           alt="Atlas knowledge network"
@@ -66,7 +66,7 @@ export default function KnowledgeBasePage() {
           sizes="(max-width: 1500px) 100vw, 1500px"
           className="object-cover object-[38%_center] md:object-center"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_65%,rgba(10,10,10,0.35)_88%,#0a0a0a_100%)]" />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, transparent 40%, rgba(10,10,10,0.5) 65%, rgba(10,10,10,0.85) 80%, #0a0a0a 100%)" }} />
 
         <div className="absolute inset-y-0 right-[4%] flex w-[48%] translate-y-14 flex-col justify-center md:right-[3.5%] md:w-[43%] md:translate-y-0">
           <a

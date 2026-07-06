@@ -67,7 +67,7 @@ export default function KenyaDetails() {
     <div>
 
       {/* Tab bar + Enquire Now */}
-      <div className="relative z-20 flex h-12 items-center overflow-hidden rounded-[14px] bg-[#222] opacity-100">
+      <div className="relative z-20 flex h-14 min-h-14 items-center overflow-hidden rounded-[14px] bg-[#222] opacity-100">
         <div className="flex overflow-x-auto flex-1">
           {TABS.map(t => (
             <button

@@ -5,12 +5,12 @@ import KenyaDetails from "@/components/KenyaDetails";
 
 export default function KenyaPage() {
   return (
-    <div className="overflow-x-hidden bg-[#0a0a0a] text-white -mt-16 min-[1030px]:-mt-20">
+    <div className="bg-[#0a0a0a] text-white -mt-16 min-[1030px]:-mt-20">
 
       {/* Hero */}
-      <section className="relative h-[calc(66.67vw+4rem)] max-h-[100svh] w-full overflow-hidden md:h-auto">
-        <img src="/Media/Kenya/hero.webp" alt="Kenya paragliding" className="absolute inset-0 h-full w-full object-cover object-top md:relative md:h-auto"/>
-        <div className="absolute inset-0" style={{background:"linear-gradient(to bottom,rgba(10,10,10,0.35) 0%,transparent 18%,transparent 50%,rgba(10,10,10,0.55) 75%,rgba(10,10,10,0.92) 92%,#0a0a0a 100%)"}}/>
+      <section className="full-bleed relative -mt-16 h-[48svh] w-full overflow-hidden md:h-[80vh] min-[1030px]:-mt-20">
+        <img src="/Media/Kenya/hero.webp" alt="Kenya paragliding" className="absolute inset-0 h-full w-full object-cover object-top"/>
+        <div className="absolute inset-0" style={{background:"linear-gradient(to bottom, transparent 40%, rgba(10,10,10,0.5) 65%, rgba(10,10,10,0.85) 80%, #0a0a0a 100%)"}}/>
         <div className="absolute top-0 left-0 px-4 md:px-14 pt-20 md:pt-32">
           <h1 className="text-4xl md:text-9xl tracking-widest leading-none mb-2" style={{fontFamily:"var(--font-barlow)",fontWeight:300,textShadow:"0 2px 20px rgba(0,0,0,0.5)"}}>KENYA</h1>
           <p className="text-base md:text-2xl lg:text-3xl text-gray-200 font-light leading-snug" style={{textShadow:"0 1px 8px rgba(0,0,0,0.7)"}}>
@@ -41,9 +41,9 @@ export default function KenyaPage() {
         <div className="relative z-10 flex h-56 max-[450px]:h-40 md:h-80">
           <div className="w-1/2 flex items-center justify-end">
             <div className="w-4/5 border border-white/30 rounded-l-xl border-r-0 flex flex-col items-center justify-center py-14 max-[450px]:py-6 px-5 md:px-8 text-center">
-              <p className="text-orange-500 text-xs max-[450px]:text-[8px] md:text-sm tracking-[0.2em] uppercase mb-3">Kenya · East Africa</p>
-              <p className="text-white text-2xl max-[450px]:text-base md:text-4xl tracking-widest" style={{fontFamily:"var(--font-barlow)",fontWeight:300}}>Rift Valley</p>
-              <p className="text-gray-300 text-sm max-[450px]:text-[11px] md:text-base tracking-widest mt-2" style={{fontFamily:"var(--font-barlow)"}}>National Park</p>
+              <p className="text-orange-500 text-xs max-[450px]:text-[7px] md:text-sm tracking-[0.2em] uppercase mb-3">Kenya · East Africa</p>
+              <p className="text-white text-2xl max-[450px]:text-sm md:text-4xl tracking-widest" style={{fontFamily:"var(--font-barlow)",fontWeight:300}}>Rift Valley</p>
+              <p className="text-gray-300 text-sm max-[450px]:text-[9px] md:text-base tracking-widest mt-2" style={{fontFamily:"var(--font-barlow)"}}>National Park</p>
             </div>
           </div>
           <div className="w-1/2 rounded-xl overflow-hidden relative">
@@ -60,9 +60,9 @@ export default function KenyaPage() {
           </div>
           <div className="w-1/2 flex items-center justify-start">
             <div className="w-4/5 border border-white/30 rounded-r-xl border-l-0 flex flex-col items-center justify-center py-14 max-[450px]:py-6 px-5 md:px-8 text-center">
-              <p className="text-orange-500 text-xs max-[450px]:text-[8px] md:text-sm tracking-[0.2em] uppercase mb-3">Paragliding Area</p>
-              <p className="text-white text-2xl max-[450px]:text-base md:text-4xl tracking-widest" style={{fontFamily:"var(--font-barlow)",fontWeight:300}}>Kijabe Hill</p>
-              <p className="text-gray-300 text-sm max-[450px]:text-[11px] md:text-base tracking-widest mt-2" style={{fontFamily:"var(--font-barlow)"}}>Mt. Longonot Crater</p>
+              <p className="text-orange-500 text-xs max-[450px]:text-[7px] md:text-sm tracking-[0.2em] uppercase mb-3">Paragliding Area</p>
+              <p className="text-white text-2xl max-[450px]:text-sm md:text-4xl tracking-widest" style={{fontFamily:"var(--font-barlow)",fontWeight:300}}>Kijabe Hill</p>
+              <p className="text-gray-300 text-sm max-[450px]:text-[9px] md:text-base tracking-widest mt-2" style={{fontFamily:"var(--font-barlow)"}}>Mt. Longonot Crater</p>
             </div>
           </div>
         </div>
@@ -71,9 +71,9 @@ export default function KenyaPage() {
         <div className="relative z-10 flex h-56 max-[450px]:h-40 md:h-80">
           <div className="w-1/2 flex items-center justify-end">
             <div className="w-4/5 border border-white/30 rounded-l-xl border-r-0 flex flex-col items-center justify-center py-14 max-[450px]:py-6 px-5 md:px-8 text-center">
-              <p className="text-orange-500 text-xs max-[450px]:text-[8px] md:text-sm tracking-[0.2em] uppercase mb-3">Scenic Highland</p>
-              <p className="text-white text-2xl max-[450px]:text-base md:text-4xl tracking-widest" style={{fontFamily:"var(--font-barlow)",fontWeight:300}}>Machakos Hills</p>
-              <p className="text-gray-300 text-sm max-[450px]:text-[11px] md:text-base tracking-widest mt-2" style={{fontFamily:"var(--font-barlow)"}}>South-Eastern Kenya</p>
+              <p className="text-orange-500 text-xs max-[450px]:text-[7px] md:text-sm tracking-[0.2em] uppercase mb-3">Scenic Highland</p>
+              <p className="text-white text-2xl max-[450px]:text-sm md:text-4xl tracking-widest" style={{fontFamily:"var(--font-barlow)",fontWeight:300}}>Machakos Hills</p>
+              <p className="text-gray-300 text-sm max-[450px]:text-[9px] md:text-base tracking-widest mt-2" style={{fontFamily:"var(--font-barlow)"}}>South-Eastern Kenya</p>
             </div>
           </div>
           <div className="w-1/2 rounded-xl overflow-hidden relative">
@@ -90,9 +90,9 @@ export default function KenyaPage() {
           </div>
           <div className="w-1/2 flex items-center justify-start">
             <div className="w-4/5 border border-white/30 rounded-r-xl border-l-0 flex flex-col items-center justify-center py-14 max-[450px]:py-6 px-5 md:px-8 text-center">
-              <p className="text-orange-500 text-xs max-[450px]:text-[8px] md:text-sm tracking-[0.2em] uppercase mb-3">Safari Route</p>
-              <p className="text-white text-2xl max-[450px]:text-base md:text-4xl tracking-widest" style={{fontFamily:"var(--font-barlow)",fontWeight:300}}>Chyulu Hills</p>
-              <p className="text-gray-300 text-sm max-[450px]:text-[11px] md:text-base tracking-widest mt-2" style={{fontFamily:"var(--font-barlow)"}}>Volcanic Range · 2,188m</p>
+              <p className="text-orange-500 text-xs max-[450px]:text-[7px] md:text-sm tracking-[0.2em] uppercase mb-3">Safari Route</p>
+              <p className="text-white text-2xl max-[450px]:text-sm md:text-4xl tracking-widest" style={{fontFamily:"var(--font-barlow)",fontWeight:300}}>Chyulu Hills</p>
+              <p className="text-gray-300 text-sm max-[450px]:text-[9px] md:text-base tracking-widest mt-2" style={{fontFamily:"var(--font-barlow)"}}>Volcanic Range · 2,188m</p>
             </div>
           </div>
         </div>
@@ -101,9 +101,9 @@ export default function KenyaPage() {
         <div className="relative z-10 flex h-56 max-[450px]:h-40 md:h-80">
           <div className="w-1/2 flex items-center justify-end">
             <div className="w-4/5 border border-white/30 rounded-l-xl border-r-0 flex flex-col items-center justify-center py-14 max-[450px]:py-6 px-5 md:px-8 text-center">
-              <p className="text-orange-500 text-xs max-[450px]:text-[8px] md:text-sm tracking-[0.2em] uppercase mb-3">Young Lava Fields</p>
-              <p className="text-white text-2xl max-[450px]:text-base md:text-4xl tracking-widest" style={{fontFamily:"var(--font-barlow)",fontWeight:300}}>Kerio Valley</p>
-              <p className="text-gray-300 text-sm max-[450px]:text-[11px] md:text-base tracking-widest mt-2" style={{fontFamily:"var(--font-barlow)"}}>Great Rift Valley · 900m</p>
+              <p className="text-orange-500 text-xs max-[450px]:text-[7px] md:text-sm tracking-[0.2em] uppercase mb-3">Young Lava Fields</p>
+              <p className="text-white text-2xl max-[450px]:text-sm md:text-4xl tracking-widest" style={{fontFamily:"var(--font-barlow)",fontWeight:300}}>Kerio Valley</p>
+              <p className="text-gray-300 text-sm max-[450px]:text-[9px] md:text-base tracking-widest mt-2" style={{fontFamily:"var(--font-barlow)"}}>Great Rift Valley · 900m</p>
             </div>
           </div>
           <div className="w-1/2 rounded-xl overflow-hidden relative">

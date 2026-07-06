@@ -1,12 +1,15 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 
 export default function Navigation() {
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [atlasExpanded, setAtlasExpanded] = useState(true);
   const closeTimer = useRef<number | null>(null);
 
   useEffect(() => {
@@ -38,6 +41,32 @@ export default function Navigation() {
       setIsOpen(true);
       setIsClosing(false);
     }
+  };
+
+  const navigateFromMobileMenu = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    if (
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey
+    ) {
+      return;
+    }
+
+    event.preventDefault();
+    if (isClosing) return;
+
+    setIsClosing(true);
+    closeTimer.current = window.setTimeout(() => {
+      setIsOpen(false);
+      setIsClosing(false);
+      closeTimer.current = null;
+      router.push(href);
+    }, 280);
   };
 
   const navStyle: React.CSSProperties = scrolled
@@ -86,18 +115,34 @@ export default function Navigation() {
           />
         )}
         {/* Nav content sits above background layers */}
-        <div className="relative container mx-auto px-4" style={{ textShadow: scrolled ? 'none' : '0 1px 8px rgba(0,0,0,0.7)' }}>
-          <div className="relative flex h-16 items-center justify-between min-[1030px]:h-20">
+        <div className="relative container mx-auto px-4 min-[2000px]:max-w-[1800px]" style={{ textShadow: scrolled ? 'none' : '0 1px 8px rgba(0,0,0,0.7)' }}>
+          <div className="relative flex h-16 items-center justify-between min-[1030px]:h-24">
             {/* Left Navigation */}
-            <div className="hidden flex-1 space-x-12 min-[1030px]:flex">
-              <Link href="/" className="relative text-white text-lg font-semibold tracking-wide group">
+            <div className="hidden flex-1 space-x-8 min-[1030px]:flex">
+              <Link href="/" className="relative text-[30px] font-semibold tracking-wide text-white group min-[2000px]:text-[36px]">
                 <span className="transition-colors duration-300 group-hover:text-orange-400">Home</span>
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-400 group-hover:w-full transition-all duration-300 shadow-[0_0_8px_rgba(251,146,60,0.8)]" />
               </Link>
-              <Link href="/about" className="relative text-white text-lg font-semibold tracking-wide group">
+              <Link href="/about" className="relative text-[30px] font-semibold tracking-wide text-white group min-[2000px]:text-[36px]">
                 <span className="transition-colors duration-300 group-hover:text-orange-400">About Us</span>
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-400 group-hover:w-full transition-all duration-300 shadow-[0_0_8px_rgba(251,146,60,0.8)]" />
               </Link>
+              <div className="relative group">
+                <Link href="/atlas" className="relative flex items-center gap-1 text-[30px] font-semibold tracking-wide text-white min-[2000px]:text-[36px]">
+                  <span className="transition-colors duration-300 group-hover:text-orange-400">Atlas</span>
+                  <svg className="h-4 w-4 transition-transform duration-300 group-hover:rotate-180 group-hover:text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m19 9-7 7-7-7" />
+                  </svg>
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-400 group-hover:w-full transition-all duration-300 shadow-[0_0_8px_rgba(251,146,60,0.8)]" />
+                </Link>
+                <div className="invisible absolute left-0 top-full pt-4 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
+                  <div className="min-w-[160px] rounded-lg border border-white/10 bg-[#151515]/98 py-2 shadow-[0_10px_30px_rgba(0,0,0,0.45)]">
+                    <Link href="/atlas/kenya" className="block px-4 py-2 text-base font-semibold text-white transition-colors duration-200 hover:bg-white/5 hover:text-orange-400">
+                      Kenya
+                    </Link>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Center Logo — absolutely centered so it stays perfectly centered at any screen size */}
@@ -112,12 +157,12 @@ export default function Navigation() {
             </Link>
 
             {/* Right Navigation */}
-            <div className="hidden flex-1 justify-end space-x-12 min-[1030px]:flex">
-              <Link href="/knowledge-base" className="relative text-white text-lg font-semibold tracking-wide group">
+            <div className="hidden flex-1 justify-end space-x-8 min-[1030px]:flex">
+              <Link href="/knowledge-base" className="relative text-[30px] font-semibold tracking-wide text-white group min-[2000px]:text-[36px]">
                 <span className="transition-colors duration-300 group-hover:text-orange-400">Knowledge Base</span>
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-400 group-hover:w-full transition-all duration-300 shadow-[0_0_8px_rgba(251,146,60,0.8)]" />
               </Link>
-              <Link href="/podcast" className="relative text-white text-lg font-semibold tracking-wide group">
+              <Link href="/podcast" className="relative text-[30px] font-semibold tracking-wide text-white group min-[2000px]:text-[36px]">
                 <span className="transition-colors duration-300 group-hover:text-orange-400">Podcast</span>
                 <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-orange-400 shadow-[0_0_8px_rgba(251,146,60,0.8)] transition-all duration-300 group-hover:w-full" />
               </Link>
@@ -148,18 +193,119 @@ export default function Navigation() {
 
           {/* Mobile menu */}
           {isOpen && (
-            <div className="border-t border-gray-800 pb-4 pt-4 min-[1030px]:hidden">
-              <Link href="/" className={`${isClosing ? "mobile-menu-item-out" : "mobile-menu-item"} block py-2 text-white hover:text-orange-500`} style={{ animationDelay: isClosing ? "0ms" : "40ms" }}>
-                Home
+            <div className="pb-4 pt-2 min-[1030px]:hidden">
+              {/* Home */}
+              <Link
+                href="/"
+                onClick={(event) => navigateFromMobileMenu(event, "/")}
+                className={`${isClosing ? "mobile-menu-item-out" : "mobile-menu-item"} group flex items-center gap-4 border-b border-white/5 py-3.5`}
+                style={{ animationDelay: isClosing ? "0ms" : "40ms" }}
+              >
+                <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-white/5 text-white transition-colors duration-200 group-hover:bg-orange-500/15 group-hover:text-orange-400">
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 10.5 12 3l9 7.5M5.25 9.75V20a1 1 0 0 0 1 1H9.5v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h3.25a1 1 0 0 0 1-1V9.75" />
+                  </svg>
+                </span>
+                <span className="flex-1 text-lg font-semibold text-white transition-colors duration-200 group-hover:text-orange-400">Home</span>
+                <ChevronRight />
               </Link>
-              <Link href="/about" className={`${isClosing ? "mobile-menu-item-out" : "mobile-menu-item"} block py-2 text-white hover:text-orange-500`} style={{ animationDelay: isClosing ? "0ms" : "120ms" }}>
-                About Us
+
+              {/* About Us */}
+              <Link
+                href="/about"
+                onClick={(event) => navigateFromMobileMenu(event, "/about")}
+                className={`${isClosing ? "mobile-menu-item-out" : "mobile-menu-item"} group flex items-center gap-4 border-b border-white/5 py-3.5`}
+                style={{ animationDelay: isClosing ? "0ms" : "120ms" }}
+              >
+                <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-white/5 text-white transition-colors duration-200 group-hover:bg-orange-500/15 group-hover:text-orange-400">
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.5a6 6 0 0 0-12 0M9 11.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7ZM21 19.5a5 5 0 0 0-4-4.9M15.5 11.4a3.5 3.5 0 0 0 0-6.8" />
+                  </svg>
+                </span>
+                <span className="flex-1 text-lg font-semibold text-white transition-colors duration-200 group-hover:text-orange-400">About Us</span>
+                <ChevronRight />
               </Link>
-              <Link href="/knowledge-base" className={`${isClosing ? "mobile-menu-item-out" : "mobile-menu-item"} block py-2 text-white hover:text-orange-500`} style={{ animationDelay: isClosing ? "0ms" : "200ms" }}>
-                Knowledge Base
+
+              {/* Atlas (expandable) */}
+              <button
+                type="button"
+                onClick={() => setAtlasExpanded((v) => !v)}
+                className={`${isClosing ? "mobile-menu-item-out" : "mobile-menu-item"} group flex w-full items-center gap-4 border-b border-white/5 py-3.5`}
+                style={{ animationDelay: isClosing ? "0ms" : "160ms" }}
+              >
+                <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-white/5 text-white transition-colors duration-200 group-hover:bg-orange-500/15 group-hover:text-orange-400">
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                    <circle cx="12" cy="12" r="9" strokeLinecap="round" strokeLinejoin="round" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 12h18M12 3c2.5 2.5 3.5 5.7 3.5 9s-1 6.5-3.5 9c-2.5-2.5-3.5-5.7-3.5-9S9.5 5.5 12 3Z" />
+                  </svg>
+                </span>
+                <span className="flex-1 text-left text-lg font-semibold text-white transition-colors duration-200 group-hover:text-orange-400">Atlas</span>
+                <svg
+                  className={`h-5 w-5 text-orange-500 transition-transform duration-300 ${atlasExpanded ? "rotate-180" : ""}`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="m19 9-7 7-7-7" />
+                </svg>
+              </button>
+
+              {/* Atlas submenu — Kenya */}
+              {atlasExpanded && (
+                <div className="relative border-b border-white/5 py-2 pl-6">
+                  {/* vertical connector line */}
+                  <span className="absolute left-[22px] top-3 bottom-3 w-px bg-gradient-to-b from-orange-500 to-orange-500/20">
+                    <span className="absolute -left-[3px] top-1/2 -translate-y-1/2 h-2 w-2 rounded-full bg-orange-500 shadow-[0_0_8px_rgba(249,115,22,0.9)]" />
+                  </span>
+                  <Link
+                    href="/atlas/kenya"
+                    onClick={(event) => navigateFromMobileMenu(event, "/atlas/kenya")}
+                    className="ml-4 flex items-center gap-3 rounded-xl bg-white/[0.06] px-4 py-3 transition-colors duration-200 hover:bg-white/10"
+                  >
+                    <svg className="h-5 w-5 flex-shrink-0 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 21s7-6.5 7-11a7 7 0 1 0-14 0c0 4.5 7 11 7 11Z" />
+                      <circle cx="12" cy="10" r="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <span className="flex-1">
+                      <span className="block text-base font-semibold text-white">Kenya</span>
+                    </span>
+                    <ChevronRight />
+                  </Link>
+                </div>
+              )}
+
+              {/* Knowledge Base */}
+              <Link
+                href="/knowledge-base"
+                onClick={(event) => navigateFromMobileMenu(event, "/knowledge-base")}
+                className={`${isClosing ? "mobile-menu-item-out" : "mobile-menu-item"} group flex items-center gap-4 border-b border-white/5 py-3.5`}
+                style={{ animationDelay: isClosing ? "0ms" : "240ms" }}
+              >
+                <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-white/5 text-white transition-colors duration-200 group-hover:bg-orange-500/15 group-hover:text-orange-400">
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.5C10.5 5.2 8.3 4.5 5.5 4.5A2 2 0 0 0 3.5 6.5v11a1 1 0 0 0 1 1c2.8 0 5 .7 6.5 2 1.5-1.3 3.7-2 6.5-2a1 1 0 0 0 1-1v-11a2 2 0 0 0-2-2c-2.8 0-5 .7-6.5 2Zm0 0V20" />
+                  </svg>
+                </span>
+                <span className="flex-1 text-lg font-semibold text-white transition-colors duration-200 group-hover:text-orange-400">Knowledge Base</span>
+                <ChevronRight />
               </Link>
-              <Link href="/podcast" className={`${isClosing ? "mobile-menu-item-out" : "mobile-menu-item"} block py-2 text-white hover:text-orange-400`} style={{ animationDelay: isClosing ? "0ms" : "280ms" }}>
-                Podcast
+
+              {/* Podcast */}
+              <Link
+                href="/podcast"
+                onClick={(event) => navigateFromMobileMenu(event, "/podcast")}
+                className={`${isClosing ? "mobile-menu-item-out" : "mobile-menu-item"} group flex items-center gap-4 py-3.5`}
+                style={{ animationDelay: isClosing ? "0ms" : "320ms" }}
+              >
+                <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-white/5 text-white transition-colors duration-200 group-hover:bg-orange-500/15 group-hover:text-orange-400">
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                    <rect x="9" y="3" width="6" height="11" rx="3" strokeLinecap="round" strokeLinejoin="round" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M8.5 21h7" />
+                  </svg>
+                </span>
+                <span className="flex-1 text-lg font-semibold text-white transition-colors duration-200 group-hover:text-orange-400">Podcast</span>
+                <ChevronRight />
               </Link>
             </div>
           )}
@@ -168,5 +314,13 @@ export default function Navigation() {
       {/* Spacer so content doesn't hide under fixed navbar */}
       <div className="h-16 min-[1030px]:h-20" />
     </>
+  );
+}
+
+function ChevronRight() {
+  return (
+    <svg className="h-5 w-5 flex-shrink-0 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="m9 5 7 7-7 7" />
+    </svg>
   );
 }
