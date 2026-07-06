@@ -127,22 +127,6 @@ export default function Navigation() {
                 <span className="transition-colors duration-300 group-hover:text-orange-400">About Us</span>
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-400 group-hover:w-full transition-all duration-300 shadow-[0_0_8px_rgba(251,146,60,0.8)]" />
               </Link>
-              <div className="relative group">
-                <Link href="/atlas" className="relative flex items-center gap-1 text-[30px] font-semibold tracking-wide text-white min-[2000px]:text-[36px]">
-                  <span className="transition-colors duration-300 group-hover:text-orange-400">Atlas</span>
-                  <svg className="h-4 w-4 transition-transform duration-300 group-hover:rotate-180 group-hover:text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="m19 9-7 7-7-7" />
-                  </svg>
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-400 group-hover:w-full transition-all duration-300 shadow-[0_0_8px_rgba(251,146,60,0.8)]" />
-                </Link>
-                <div className="invisible absolute left-0 top-full pt-4 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
-                  <div className="min-w-[160px] rounded-lg border border-white/10 bg-[#151515]/98 py-2 shadow-[0_10px_30px_rgba(0,0,0,0.45)]">
-                    <Link href="/atlas/kenya" className="block px-4 py-2 text-base font-semibold text-white transition-colors duration-200 hover:bg-white/5 hover:text-orange-400">
-                      Kenya
-                    </Link>
-                  </div>
-                </div>
-              </div>
             </div>
 
             {/* Center Logo — absolutely centered so it stays perfectly centered at any screen size */}

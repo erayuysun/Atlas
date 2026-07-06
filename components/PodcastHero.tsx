@@ -81,11 +81,11 @@ export default function PodcastHero() {
           Podcast
         </h1>
 
-        <p className="absolute inset-x-4 bottom-4 w-auto text-center text-[10px] font-bold tracking-[0.12em] text-white sm:bottom-auto sm:left-4 sm:right-auto sm:top-[54%] sm:max-w-[70%] sm:text-left sm:text-xs md:static md:mt-4 md:w-[52%] md:max-w-none md:text-center md:text-lg min-[1030px]:absolute min-[1030px]:left-12 min-[1030px]:right-auto min-[1030px]:top-[78%] min-[1030px]:mt-0 min-[1030px]:text-[30px] min-[2000px]:text-[45px] min-[2000px]:leading-[1.4]">
+        <p className="podcast-hero-support-text absolute inset-x-4 bottom-4 w-auto text-center text-[10px] font-bold tracking-[0.12em] text-white sm:bottom-auto sm:left-4 sm:right-auto sm:top-[54%] sm:max-w-[70%] sm:text-left sm:text-xs md:static md:mt-4 md:w-[52%] md:max-w-none md:text-center md:text-lg min-[1030px]:absolute min-[1030px]:left-12 min-[1030px]:right-auto min-[1030px]:top-[78%] min-[1030px]:mt-0 min-[1030px]:text-[30px] min-[2000px]:text-[45px] min-[2000px]:leading-[1.4]">
           Your aerial gateway to uncovering the secrets of the skies
         </p>
 
-        <div className="absolute right-4 top-[51%] hidden w-[44%] border-x border-white/50 px-3 py-2 text-right text-xs font-bold leading-relaxed tracking-[0.12em] text-white sm:w-auto sm:text-base md:right-[10%] md:top-[55%] md:block md:text-lg min-[1030px]:right-[14%] min-[1030px]:top-[78%] min-[1030px]:text-[30px] min-[2000px]:text-[45px] min-[2000px]:leading-[1.4]">
+        <div className="podcast-hero-support-text absolute right-4 top-[51%] hidden w-[44%] border-x border-white/50 px-3 py-2 text-right text-xs font-bold leading-relaxed tracking-[0.12em] text-white sm:w-auto sm:text-base md:right-[10%] md:top-[55%] md:block md:text-lg min-[1030px]:right-[14%] min-[1030px]:top-[78%] min-[1030px]:text-[30px] min-[2000px]:text-[45px] min-[2000px]:leading-[1.4]">
           Trusted by{" "}
           <span className={listeners === 2000 ? "podcast-count-glare" : ""}>
             {listeners.toLocaleString()}+
