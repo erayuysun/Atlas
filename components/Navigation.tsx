@@ -116,37 +116,37 @@ export default function Navigation() {
         )}
         {/* Nav content sits above background layers */}
         <div className="relative container mx-auto px-4 min-[2000px]:max-w-[1800px]" style={{ textShadow: scrolled ? 'none' : '0 1px 8px rgba(0,0,0,0.7)' }}>
-          <div className="relative flex h-16 items-center justify-between min-[1030px]:h-24">
+          <div className="relative flex h-16 items-center justify-between min-[1030px]:grid min-[1030px]:h-24 min-[1030px]:grid-cols-5">
             {/* Left Navigation */}
-            <div className="hidden flex-1 space-x-8 min-[1030px]:flex">
-              <Link href="/" className="relative text-[30px] font-semibold tracking-wide text-white group min-[2000px]:text-[36px]">
+            <div className="hidden min-[1030px]:contents">
+              <Link href="/" className="group relative justify-self-center whitespace-nowrap text-[19.2px] font-semibold tracking-wide text-white min-[1251px]:text-[24px] min-[1440px]:text-[28px] min-[2000px]:text-[36px]">
                 <span className="transition-colors duration-300 group-hover:text-orange-400">Home</span>
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-400 group-hover:w-full transition-all duration-300 shadow-[0_0_8px_rgba(251,146,60,0.8)]" />
               </Link>
-              <Link href="/about" className="relative text-[30px] font-semibold tracking-wide text-white group min-[2000px]:text-[36px]">
+              <Link href="/about" className="group relative justify-self-center whitespace-nowrap text-[19.2px] font-semibold tracking-wide text-white min-[1251px]:text-[24px] min-[1440px]:text-[28px] min-[2000px]:text-[36px]">
                 <span className="transition-colors duration-300 group-hover:text-orange-400">About Us</span>
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-400 group-hover:w-full transition-all duration-300 shadow-[0_0_8px_rgba(251,146,60,0.8)]" />
               </Link>
             </div>
 
             {/* Center Logo — absolutely centered so it stays perfectly centered at any screen size */}
-            <Link href="/atlas/kenya" className="absolute left-1/2 -translate-x-1/2 flex-shrink-0">
+            <Link href="/atlas/kenya" className="absolute left-1/2 -translate-x-1/2 flex-shrink-0 min-[1030px]:static min-[1030px]:justify-self-center min-[1030px]:translate-x-0">
               <img 
                 src="/Media/hp/logonobg.webp" 
                 alt="ATLAS" 
                 width={866}
                 height={288}
-                className="h-auto w-[220px] object-contain sm:w-[280px] min-[1030px]:w-[481px]"
+                className="h-auto w-[220px] object-contain sm:w-[280px] min-[1030px]:w-[300px] min-[1251px]:w-[360px] min-[1440px]:w-[430px] min-[2000px]:w-[481px]"
               />
             </Link>
 
             {/* Right Navigation */}
-            <div className="hidden flex-1 justify-end space-x-8 min-[1030px]:flex">
-              <Link href="/knowledge-base" className="relative text-[30px] font-semibold tracking-wide text-white group min-[2000px]:text-[36px]">
+            <div className="hidden min-[1030px]:contents">
+              <Link href="/knowledge-base" className="group relative justify-self-center whitespace-nowrap text-[19.2px] font-semibold tracking-wide text-white min-[1251px]:text-[24px] min-[1440px]:text-[28px] min-[2000px]:text-[36px]">
                 <span className="transition-colors duration-300 group-hover:text-orange-400">Knowledge Base</span>
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-400 group-hover:w-full transition-all duration-300 shadow-[0_0_8px_rgba(251,146,60,0.8)]" />
               </Link>
-              <Link href="/podcast" className="relative text-[30px] font-semibold tracking-wide text-white group min-[2000px]:text-[36px]">
+              <Link href="/podcast" className="group relative justify-self-center whitespace-nowrap text-[19.2px] font-semibold tracking-wide text-white min-[1251px]:text-[24px] min-[1440px]:text-[28px] min-[2000px]:text-[36px]">
                 <span className="transition-colors duration-300 group-hover:text-orange-400">Podcast</span>
                 <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-orange-400 shadow-[0_0_8px_rgba(251,146,60,0.8)] transition-all duration-300 group-hover:w-full" />
               </Link>

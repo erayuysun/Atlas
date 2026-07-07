@@ -176,6 +176,12 @@ export default function PodcastHero() {
         width={1600}
         height={736}
         className="pointer-events-none block h-auto w-full object-cover object-center opacity-30"
+        style={{
+          WebkitMaskImage:
+            "linear-gradient(to right, transparent 0%, transparent 8%, rgba(0,0,0,0.18) 14%, rgba(0,0,0,0.65) 24%, black 34%, black 66%, rgba(0,0,0,0.65) 76%, rgba(0,0,0,0.18) 86%, transparent 92%, transparent 100%)",
+          maskImage:
+            "linear-gradient(to right, transparent 0%, transparent 8%, rgba(0,0,0,0.18) 14%, rgba(0,0,0,0.65) 24%, black 34%, black 66%, rgba(0,0,0,0.65) 76%, rgba(0,0,0,0.18) 86%, transparent 92%, transparent 100%)",
+        }}
       />
       <div
         className="absolute inset-0 flex items-center justify-center px-4 py-6 text-center text-[7px] font-medium leading-relaxed tracking-[0.08em] text-white sm:px-10 sm:text-xs md:px-14 md:text-sm lg:px-20 lg:text-xl min-[2000px]:text-[30px] min-[2000px]:leading-[1.5]"
