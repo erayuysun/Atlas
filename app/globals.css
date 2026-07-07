@@ -69,6 +69,28 @@ body {
   }
 }
 
+@keyframes podcast-player-in {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes podcast-player-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}
+
 .knowledge-hero-glare::before {
   content: "";
   position: absolute;
@@ -400,6 +422,14 @@ body {
   animation: mobile-menu-item-out 220ms ease-in both;
 }
 
+.podcast-player-in {
+  animation: podcast-player-in 320ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.podcast-player-out {
+  animation: podcast-player-out 240ms ease-in both;
+}
+
 .podcast-count-glare {
   position: relative;
   display: inline-block;
@@ -461,6 +491,8 @@ body {
   .mobile-menu-backdrop-out,
   .mobile-menu-item-out,
   .mobile-menu-item,
+  .podcast-player-in,
+  .podcast-player-out,
   .knowledge-hero-glare::after,
   .knowledge-hero-glare::before,
   .knowledge-category-link,

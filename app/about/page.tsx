@@ -58,8 +58,8 @@ export default function AboutPage() {
       </section>
 
       <section className="relative overflow-hidden pt-12 md:pt-24">
-        <div className="container relative z-10 mx-auto grid grid-cols-[44%_1fr] items-center gap-4 px-4 md:grid-cols-2 md:gap-16 md:px-8">
-          <div className="relative mx-auto w-full max-w-xl">
+        <div className="container relative z-10 mx-auto grid items-center gap-8 px-4 md:grid-cols-2 md:gap-16 md:px-8">
+          <div className="relative mx-auto w-full max-w-[280px] sm:max-w-sm md:max-w-xl">
             <div className="pointer-events-none absolute -bottom-4 -right-4 h-full w-full">
               <span className="absolute left-2 right-2 top-0 h-px bg-white/35" />
               <span className="absolute bottom-0 left-2 right-2 h-px bg-white/35" />
@@ -78,7 +78,7 @@ export default function AboutPage() {
             <p className="text-xs font-semibold tracking-[0.12em] text-orange-500 md:text-lg min-[1000px]:text-2xl min-[1500px]:text-3xl">
               Who We Are
             </p>
-            <div className="mt-4 space-y-3 text-[8px] font-medium leading-[1.5] text-gray-200 sm:text-[10px] md:mt-7 md:space-y-6 md:text-base min-[1000px]:space-y-8 min-[1000px]:text-[22px] min-[1000px]:leading-[1.7] min-[1500px]:space-y-10 min-[1500px]:text-[30px] min-[1500px]:leading-[1.75]">
+            <div className="mt-4 space-y-3 text-sm font-medium leading-relaxed text-gray-200 md:mt-7 md:space-y-6">
               <p>
                 At Paragliding Atlas, we believe that our sport isn&apos;t just
                 about flying; instead it is a way of experiencing the world
@@ -98,22 +98,22 @@ export default function AboutPage() {
           </div>
         </div>
         <Image
-          src="/Media/About Us/bg-figure1.png"
+          src="/Media/About Us/bg-figure1-transparent.png"
           alt=""
           aria-hidden="true"
           width={1674}
           height={397}
-          className="pointer-events-none relative z-0 mt-12 h-auto w-full object-cover opacity-90 min-[1000px]:mt-[50px]"
+          className="pointer-events-none relative z-0 mt-12 h-auto w-full object-cover opacity-70 min-[1000px]:mt-[50px]"
         />
       </section>
 
       <section className="relative overflow-hidden pt-10 md:pt-24">
-        <div className="container relative z-10 mx-auto grid grid-cols-[1fr_44%] items-center gap-4 px-4 md:grid-cols-2 md:gap-16 md:px-8">
+        <div className="container relative z-10 mx-auto grid items-center gap-8 px-4 md:grid-cols-2 md:gap-16 md:px-8">
           <div className="text-center md:text-left">
             <p className="text-xs font-semibold tracking-[0.12em] text-orange-500 md:text-lg min-[1000px]:text-2xl min-[1500px]:text-3xl">
               Why Choose Us
             </p>
-            <div className="mt-4 space-y-3 text-[8px] font-medium leading-[1.5] text-gray-200 sm:text-[10px] md:mt-7 md:space-y-6 md:text-base min-[1000px]:space-y-8 min-[1000px]:text-[22px] min-[1000px]:leading-[1.7] min-[1500px]:space-y-10 min-[1500px]:text-[30px] min-[1500px]:leading-[1.75]">
+            <div className="mt-4 space-y-3 text-sm font-medium leading-relaxed text-gray-200 md:mt-7 md:space-y-6">
               <p>
                 Our team is united by a single passion: to elevate every aspect
                 of your flying holiday into a series of unforgettable moments,
@@ -129,8 +129,8 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
-          <div className="relative mx-auto w-full max-w-xl md:order-2">
-            <div className="pointer-events-none absolute -bottom-4 -left-4 h-full w-full">
+          <div className="relative mx-auto w-full max-w-[280px] sm:max-w-sm md:max-w-xl md:order-2">
+            <div className="pointer-events-none absolute -bottom-4 -right-4 h-full w-full">
               <span className="absolute left-2 right-2 top-0 h-px bg-white/35" />
               <span className="absolute bottom-0 left-2 right-2 h-px bg-white/35" />
               <span className="absolute bottom-2 left-0 top-2 w-px bg-white/35" />
@@ -146,12 +146,12 @@ export default function AboutPage() {
           </div>
         </div>
         <Image
-          src="/Media/About Us/bg-figure2.png"
+          src="/Media/About Us/bg-figure2-transparent.png"
           alt=""
           aria-hidden="true"
-          width={2000}
-          height={900}
-          className="pointer-events-none relative z-0 mt-12 h-auto w-full object-cover min-[1000px]:mt-[50px]"
+          width={2339}
+          height={993}
+          className="pointer-events-none relative z-0 mt-12 h-auto w-full object-cover opacity-80 min-[1000px]:mt-[50px]"
         />
       </section>
 
@@ -163,7 +163,7 @@ export default function AboutPage() {
                 <h2 className="text-base font-semibold tracking-[0.1em] text-orange-500 md:text-xl min-[1000px]:text-2xl min-[1500px]:text-3xl">
                   {value.title}
                 </h2>
-                <p className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-gray-300 md:text-base min-[1000px]:max-w-2xl min-[1000px]:text-xl min-[1000px]:leading-[1.7] min-[1500px]:max-w-3xl min-[1500px]:text-[28px]">
+                <p className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-gray-300 min-[1000px]:max-w-2xl min-[1500px]:max-w-3xl">
                   {value.body}
                 </p>
               </article>

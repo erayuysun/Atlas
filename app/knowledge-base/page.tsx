@@ -55,7 +55,7 @@ const topics = [
 export default function KnowledgeBasePage() {
   return (
     <div className="overflow-hidden bg-[#0a0a0a] text-white">
-      <section className="full-bleed relative -mt-16 h-[48svh] w-full overflow-hidden md:h-[80vh] min-[1030px]:-mt-20">
+      <section className="full-bleed relative -mt-16 h-[48svh] w-full overflow-hidden md:h-[80vh] min-[1000px]:-mt-[50px]">
         <Image
           src="/Media/Knowledge Base/HERO.png"
           alt="Atlas knowledge network"
@@ -120,7 +120,7 @@ export default function KnowledgeBasePage() {
           <p className="mb-5 text-sm font-semibold uppercase tracking-[0.22em] text-orange-500">
             Explore by subject
           </p>
-          <p className="rounded-r-xl border-l-4 border-[#8f83ff] bg-[#16161b] px-6 py-5 text-base font-semibold leading-relaxed text-gray-100 shadow-[0_5px_24px_rgba(143,131,255,0.12)] md:px-8 md:text-lg">
+          <p className="rounded-r-xl border-l-4 border-[#8f83ff] bg-[#16161b] px-6 py-5 text-sm font-semibold leading-relaxed text-gray-100 shadow-[0_5px_24px_rgba(143,131,255,0.12)] md:px-8">
             Discover the fascinating world of paragliding through our
             comprehensive collection of resources, guides, and expert insights.
           </p>
@@ -166,7 +166,7 @@ export default function KnowledgeBasePage() {
                 <h3 className="max-w-xl text-2xl font-bold leading-tight transition group-hover:text-orange-400 md:text-3xl">
                   {topic.title}
                 </h3>
-                <p className="mt-4 max-w-2xl leading-relaxed text-gray-400">
+                <p className="mt-4 max-w-2xl text-sm leading-relaxed text-gray-400">
                   {topic.description}
                 </p>
                 <span className="mt-auto flex items-center gap-2 pt-7 text-sm font-semibold text-white">

@@ -14,12 +14,12 @@ export default function PodcastPage() {
     <div className="bg-[#0a0a0a] text-white">
       <PodcastHero />
 
-      <section className="container mx-auto px-5 py-6 md:px-8 md:py-16 min-[2000px]:max-w-[1800px] min-[2000px]:py-24">
-        <div className="rounded-xl bg-[#020806] px-5 py-5 md:px-8 md:py-7 min-[2000px]:px-12 min-[2000px]:py-10">
+      <section className="container mx-auto px-0 py-0 min-[2000px]:max-w-[1800px]">
+        <div className="rounded-xl bg-[#020806] px-5 py-5 text-center md:px-8 md:py-7 min-[2000px]:px-12 min-[2000px]:py-10">
           <p className="text-sm font-bold tracking-[0.1em] text-gray-400 md:text-xl min-[2000px]:text-[36px]">
             Press play and start transforming your Flying today
           </p>
-          <div className="mt-6 grid grid-cols-3 items-center gap-1.5 sm:flex sm:flex-wrap sm:gap-4 min-[2000px]:mt-10 min-[2000px]:gap-7">
+          <div className="mx-auto mt-6 grid max-w-fit grid-cols-3 items-center gap-1.5 sm:flex sm:flex-wrap sm:justify-center sm:gap-4 min-[2000px]:mt-10 min-[2000px]:gap-7">
             <a
               href="https://open.spotify.com/show/16jBM3RfjVERukNHJrIRec"
               target="_blank"
@@ -65,7 +65,7 @@ export default function PodcastPage() {
         </div>
       </section>
 
-      <section className="container mx-auto px-5 pb-5 md:px-8 md:pb-20 min-[2000px]:max-w-[1800px] min-[2000px]:pb-28">
+      <section className="container mx-auto px-0 pb-0 min-[2000px]:max-w-[1800px]">
         <div className="rounded-xl bg-[#080a09] px-4 py-5 text-center md:px-6 md:py-10 min-[2000px]:px-12 min-[2000px]:py-16">
           <p className="text-sm font-medium tracking-[0.18em] text-gray-500 md:text-xl min-[2000px]:text-[30px]">
             Do You have a Question That You want Answered On The Podcast
@@ -81,8 +81,8 @@ export default function PodcastPage() {
         </div>
       </section>
 
-      <section className="container mx-auto px-5 pb-10 md:px-8 md:pb-24 min-[2000px]:max-w-[1800px]">
-        <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#111216] p-4 shadow-[0_20px_55px_rgba(0,0,0,0.35)] md:p-6 min-[2000px]:p-10">
+      <section className="container mx-auto px-0 pb-0 min-[2000px]:max-w-[1800px]">
+        <div className="overflow-hidden bg-[#0a0a0a] shadow-[0_20px_55px_rgba(0,0,0,0.35)]">
           <PodcastPortal />
         </div>
       </section>

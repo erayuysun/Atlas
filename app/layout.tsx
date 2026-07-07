@@ -31,7 +31,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`antialiased bg-[#0a0a0a] ${barlowCondensed.variable} ${poppins.variable}`}>
         {/* Max-width wrapper — content capped at 1500px, centered, bg extends full width */}
-        <div className="max-w-[1500px] mx-auto relative">
+        <div className="relative mx-auto w-full max-w-[1500px] min-[1875px]:w-[80vw] min-[1875px]:max-w-none">
           <Navigation />
           <main>
             {children}

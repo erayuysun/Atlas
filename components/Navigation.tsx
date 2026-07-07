@@ -89,9 +89,9 @@ export default function Navigation() {
       >
         {/* Gradient layer — visible at top, fades out when scrolled */}
         <div
-          className="absolute inset-0 pointer-events-none"
+          className="pointer-events-none absolute inset-x-0 top-0 h-28 min-[1000px]:h-32 min-[2000px]:h-40"
           style={{
-            background: "linear-gradient(to bottom, rgba(18,18,18,0.28) 0%, rgba(18,18,18,0.12) 50%, rgba(18,18,18,0) 100%)",
+            background: "linear-gradient(to bottom, rgba(4,4,4,0.94) 0%, rgba(6,6,6,0.78) 38%, rgba(8,8,8,0.42) 72%, rgba(8,8,8,0) 100%)",
             opacity: scrolled ? 0 : 1,
             transition: 'opacity 600ms cubic-bezier(0.4, 0, 0.2, 1)',
           }}
@@ -107,7 +107,7 @@ export default function Navigation() {
         />
         {isOpen && (
           <div
-            className={`${isClosing ? "mobile-menu-backdrop-out" : "mobile-menu-backdrop"} pointer-events-none absolute inset-x-0 top-0 -bottom-16 min-[1030px]:hidden`}
+            className={`${isClosing ? "mobile-menu-backdrop-out" : "mobile-menu-backdrop"} pointer-events-none absolute inset-x-0 top-0 -bottom-16 min-[1000px]:hidden`}
             style={{
               background:
                 "linear-gradient(to bottom, rgba(10,10,10,0.98) 0%, rgba(10,10,10,0.96) 72%, rgba(10,10,10,0.82) 82%, transparent 100%)",
@@ -115,38 +115,38 @@ export default function Navigation() {
           />
         )}
         {/* Nav content sits above background layers */}
-        <div className="relative container mx-auto px-4 min-[2000px]:max-w-[1800px]" style={{ textShadow: scrolled ? 'none' : '0 1px 8px rgba(0,0,0,0.7)' }}>
-          <div className="relative flex h-16 items-center justify-between min-[1030px]:grid min-[1030px]:h-24 min-[1030px]:grid-cols-5">
+        <div className="relative container mx-auto px-4 min-[2000px]:max-w-[1800px]" style={{ textShadow: scrolled ? 'none' : '0 1px 12px rgba(0,0,0,0.95)' }}>
+          <div className="relative flex h-16 items-center justify-between min-[1000px]:grid min-[1000px]:h-[50px] min-[1000px]:grid-cols-5 min-[2000px]:h-[50px]">
             {/* Left Navigation */}
-            <div className="hidden min-[1030px]:contents">
-              <Link href="/" className="group relative justify-self-center whitespace-nowrap text-[19.2px] font-semibold tracking-wide text-white min-[1251px]:text-[24px] min-[1440px]:text-[28px] min-[2000px]:text-[36px]">
+            <div className="hidden min-[1000px]:contents">
+              <Link href="/" className="group relative justify-self-center whitespace-nowrap text-[14px] font-semibold leading-none tracking-wide text-white min-[1251px]:text-[16px] min-[1440px]:text-[18px] min-[2000px]:text-[22px]">
                 <span className="transition-colors duration-300 group-hover:text-orange-400">Home</span>
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-400 group-hover:w-full transition-all duration-300 shadow-[0_0_8px_rgba(251,146,60,0.8)]" />
               </Link>
-              <Link href="/about" className="group relative justify-self-center whitespace-nowrap text-[19.2px] font-semibold tracking-wide text-white min-[1251px]:text-[24px] min-[1440px]:text-[28px] min-[2000px]:text-[36px]">
+              <Link href="/about" className="group relative justify-self-center whitespace-nowrap text-[14px] font-semibold leading-none tracking-wide text-white min-[1251px]:text-[16px] min-[1440px]:text-[18px] min-[2000px]:text-[22px]">
                 <span className="transition-colors duration-300 group-hover:text-orange-400">About Us</span>
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-400 group-hover:w-full transition-all duration-300 shadow-[0_0_8px_rgba(251,146,60,0.8)]" />
               </Link>
             </div>
 
             {/* Center Logo — absolutely centered so it stays perfectly centered at any screen size */}
-            <Link href="/atlas/kenya" className="absolute left-1/2 -translate-x-1/2 flex-shrink-0 min-[1030px]:static min-[1030px]:justify-self-center min-[1030px]:translate-x-0">
+            <Link href="/atlas/kenya" className="absolute left-1/2 flex h-full -translate-x-1/2 flex-shrink-0 items-center overflow-hidden min-[1000px]:static min-[1000px]:justify-self-center min-[1000px]:translate-x-0">
               <img 
                 src="/Media/hp/logonobg.webp" 
                 alt="ATLAS" 
                 width={866}
                 height={288}
-                className="h-auto w-[220px] object-contain sm:w-[280px] min-[1030px]:w-[300px] min-[1251px]:w-[360px] min-[1440px]:w-[430px] min-[2000px]:w-[481px]"
+                className="h-[120%] max-h-none w-auto max-w-none object-contain min-[1000px]:h-[150%] min-[1251px]:h-[160%] min-[1440px]:h-[170%] min-[2000px]:h-[170%]"
               />
             </Link>
 
             {/* Right Navigation */}
-            <div className="hidden min-[1030px]:contents">
-              <Link href="/knowledge-base" className="group relative justify-self-center whitespace-nowrap text-[19.2px] font-semibold tracking-wide text-white min-[1251px]:text-[24px] min-[1440px]:text-[28px] min-[2000px]:text-[36px]">
+            <div className="hidden min-[1000px]:contents">
+              <Link href="/knowledge-base" className="group relative justify-self-center whitespace-nowrap text-[14px] font-semibold leading-none tracking-wide text-white min-[1251px]:text-[16px] min-[1440px]:text-[18px] min-[2000px]:text-[22px]">
                 <span className="transition-colors duration-300 group-hover:text-orange-400">Knowledge Base</span>
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-400 group-hover:w-full transition-all duration-300 shadow-[0_0_8px_rgba(251,146,60,0.8)]" />
               </Link>
-              <Link href="/podcast" className="group relative justify-self-center whitespace-nowrap text-[19.2px] font-semibold tracking-wide text-white min-[1251px]:text-[24px] min-[1440px]:text-[28px] min-[2000px]:text-[36px]">
+              <Link href="/podcast" className="group relative justify-self-center whitespace-nowrap text-[14px] font-semibold leading-none tracking-wide text-white min-[1251px]:text-[16px] min-[1440px]:text-[18px] min-[2000px]:text-[22px]">
                 <span className="transition-colors duration-300 group-hover:text-orange-400">Podcast</span>
                 <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-orange-400 shadow-[0_0_8px_rgba(251,146,60,0.8)] transition-all duration-300 group-hover:w-full" />
               </Link>
@@ -154,7 +154,7 @@ export default function Navigation() {
 
             {/* Mobile menu button */}
             <button
-              className="text-white min-[1030px]:hidden"
+              className="text-white min-[1000px]:hidden"
               onClick={toggleMenu}
             >
               <svg
@@ -177,7 +177,7 @@ export default function Navigation() {
 
           {/* Mobile menu */}
           {isOpen && (
-            <div className="pb-4 pt-2 min-[1030px]:hidden">
+            <div className="pb-4 pt-2 min-[1000px]:hidden">
               {/* Home */}
               <Link
                 href="/"
@@ -194,28 +194,12 @@ export default function Navigation() {
                 <ChevronRight />
               </Link>
 
-              {/* About Us */}
-              <Link
-                href="/about"
-                onClick={(event) => navigateFromMobileMenu(event, "/about")}
-                className={`${isClosing ? "mobile-menu-item-out" : "mobile-menu-item"} group flex items-center gap-4 border-b border-white/5 py-3.5`}
-                style={{ animationDelay: isClosing ? "0ms" : "120ms" }}
-              >
-                <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-white/5 text-white transition-colors duration-200 group-hover:bg-orange-500/15 group-hover:text-orange-400">
-                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.5a6 6 0 0 0-12 0M9 11.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7ZM21 19.5a5 5 0 0 0-4-4.9M15.5 11.4a3.5 3.5 0 0 0 0-6.8" />
-                  </svg>
-                </span>
-                <span className="flex-1 text-lg font-semibold text-white transition-colors duration-200 group-hover:text-orange-400">About Us</span>
-                <ChevronRight />
-              </Link>
-
               {/* Atlas (expandable) */}
               <button
                 type="button"
                 onClick={() => setAtlasExpanded((v) => !v)}
                 className={`${isClosing ? "mobile-menu-item-out" : "mobile-menu-item"} group flex w-full items-center gap-4 border-b border-white/5 py-3.5`}
-                style={{ animationDelay: isClosing ? "0ms" : "160ms" }}
+                style={{ animationDelay: isClosing ? "0ms" : "120ms" }}
               >
                 <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-white/5 text-white transition-colors duration-200 group-hover:bg-orange-500/15 group-hover:text-orange-400">
                   <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
@@ -264,7 +248,7 @@ export default function Navigation() {
                 href="/knowledge-base"
                 onClick={(event) => navigateFromMobileMenu(event, "/knowledge-base")}
                 className={`${isClosing ? "mobile-menu-item-out" : "mobile-menu-item"} group flex items-center gap-4 border-b border-white/5 py-3.5`}
-                style={{ animationDelay: isClosing ? "0ms" : "240ms" }}
+                style={{ animationDelay: isClosing ? "0ms" : "200ms" }}
               >
                 <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-white/5 text-white transition-colors duration-200 group-hover:bg-orange-500/15 group-hover:text-orange-400">
                   <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
@@ -279,8 +263,8 @@ export default function Navigation() {
               <Link
                 href="/podcast"
                 onClick={(event) => navigateFromMobileMenu(event, "/podcast")}
-                className={`${isClosing ? "mobile-menu-item-out" : "mobile-menu-item"} group flex items-center gap-4 py-3.5`}
-                style={{ animationDelay: isClosing ? "0ms" : "320ms" }}
+                className={`${isClosing ? "mobile-menu-item-out" : "mobile-menu-item"} group flex items-center gap-4 border-b border-white/5 py-3.5`}
+                style={{ animationDelay: isClosing ? "0ms" : "280ms" }}
               >
                 <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-white/5 text-white transition-colors duration-200 group-hover:bg-orange-500/15 group-hover:text-orange-400">
                   <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
@@ -291,12 +275,28 @@ export default function Navigation() {
                 <span className="flex-1 text-lg font-semibold text-white transition-colors duration-200 group-hover:text-orange-400">Podcast</span>
                 <ChevronRight />
               </Link>
+
+              {/* About Us */}
+              <Link
+                href="/about"
+                onClick={(event) => navigateFromMobileMenu(event, "/about")}
+                className={`${isClosing ? "mobile-menu-item-out" : "mobile-menu-item"} group flex items-center gap-4 py-3.5`}
+                style={{ animationDelay: isClosing ? "0ms" : "360ms" }}
+              >
+                <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-white/5 text-white transition-colors duration-200 group-hover:bg-orange-500/15 group-hover:text-orange-400">
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.5a6 6 0 0 0-12 0M9 11.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7ZM21 19.5a5 5 0 0 0-4-4.9M15.5 11.4a3.5 3.5 0 0 0 0-6.8" />
+                  </svg>
+                </span>
+                <span className="flex-1 text-lg font-semibold text-white transition-colors duration-200 group-hover:text-orange-400">About Us</span>
+                <ChevronRight />
+              </Link>
             </div>
           )}
         </div>
       </nav>
       {/* Spacer so content doesn't hide under fixed navbar */}
-      <div className="h-16 min-[1030px]:h-20" />
+      <div className="h-16 min-[1000px]:h-[50px] min-[2000px]:h-[50px]" />
     </>
   );
 }
